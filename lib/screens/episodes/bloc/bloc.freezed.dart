@@ -319,8 +319,8 @@ class _$EpisodesStateTearOff {
 
 // ignore: unused_element
   _EpisodesDataState data(
-      {@required List<SeasonNameModel> seasonsNameList,
-      @required List<EpisodeModel> episodesList,
+      {@required List<int> seasonsNameList,
+      @required List<EpisodesDatum> episodesList,
       @required int currentSeasonId}) {
     return _EpisodesDataState(
       seasonsNameList: seasonsNameList,
@@ -345,15 +345,15 @@ mixin _$EpisodesState {
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(List<SeasonNameModel> seasonsNameList,
-            List<EpisodeModel> episodesList, int currentSeasonId),
+        TResult data(List<int> seasonsNameList,
+            List<EpisodesDatum> episodesList, int currentSeasonId),
     @required TResult error(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<SeasonNameModel> seasonsNameList,
-        List<EpisodeModel> episodesList, int currentSeasonId),
+    TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
+        int currentSeasonId),
     TResult error(),
     @required TResult orElse(),
   });
@@ -438,8 +438,8 @@ class _$_EpisodesLoadingState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(List<SeasonNameModel> seasonsNameList,
-            List<EpisodeModel> episodesList, int currentSeasonId),
+        TResult data(List<int> seasonsNameList,
+            List<EpisodesDatum> episodesList, int currentSeasonId),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -452,8 +452,8 @@ class _$_EpisodesLoadingState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<SeasonNameModel> seasonsNameList,
-        List<EpisodeModel> episodesList, int currentSeasonId),
+    TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
+        int currentSeasonId),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -503,8 +503,8 @@ abstract class _$EpisodesDataStateCopyWith<$Res> {
           _EpisodesDataState value, $Res Function(_EpisodesDataState) then) =
       __$EpisodesDataStateCopyWithImpl<$Res>;
   $Res call(
-      {List<SeasonNameModel> seasonsNameList,
-      List<EpisodeModel> episodesList,
+      {List<int> seasonsNameList,
+      List<EpisodesDatum> episodesList,
       int currentSeasonId});
 }
 
@@ -528,10 +528,10 @@ class __$EpisodesDataStateCopyWithImpl<$Res>
     return _then(_EpisodesDataState(
       seasonsNameList: seasonsNameList == freezed
           ? _value.seasonsNameList
-          : seasonsNameList as List<SeasonNameModel>,
+          : seasonsNameList as List<int>,
       episodesList: episodesList == freezed
           ? _value.episodesList
-          : episodesList as List<EpisodeModel>,
+          : episodesList as List<EpisodesDatum>,
       currentSeasonId: currentSeasonId == freezed
           ? _value.currentSeasonId
           : currentSeasonId as int,
@@ -552,9 +552,9 @@ class _$_EpisodesDataState
         assert(currentSeasonId != null);
 
   @override
-  final List<SeasonNameModel> seasonsNameList;
+  final List<int> seasonsNameList;
   @override
-  final List<EpisodeModel> episodesList;
+  final List<EpisodesDatum> episodesList;
   @override
   final int currentSeasonId;
 
@@ -605,8 +605,8 @@ class _$_EpisodesDataState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(List<SeasonNameModel> seasonsNameList,
-            List<EpisodeModel> episodesList, int currentSeasonId),
+        TResult data(List<int> seasonsNameList,
+            List<EpisodesDatum> episodesList, int currentSeasonId),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -619,8 +619,8 @@ class _$_EpisodesDataState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<SeasonNameModel> seasonsNameList,
-        List<EpisodeModel> episodesList, int currentSeasonId),
+    TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
+        int currentSeasonId),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -662,12 +662,12 @@ class _$_EpisodesDataState
 
 abstract class _EpisodesDataState implements EpisodesState {
   const factory _EpisodesDataState(
-      {@required List<SeasonNameModel> seasonsNameList,
-      @required List<EpisodeModel> episodesList,
+      {@required List<int> seasonsNameList,
+      @required List<EpisodesDatum> episodesList,
       @required int currentSeasonId}) = _$_EpisodesDataState;
 
-  List<SeasonNameModel> get seasonsNameList;
-  List<EpisodeModel> get episodesList;
+  List<int> get seasonsNameList;
+  List<EpisodesDatum> get episodesList;
   int get currentSeasonId;
   @JsonKey(ignore: true)
   _$EpisodesDataStateCopyWith<_EpisodesDataState> get copyWith;
@@ -722,8 +722,8 @@ class _$_EpisodesErrorState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(List<SeasonNameModel> seasonsNameList,
-            List<EpisodeModel> episodesList, int currentSeasonId),
+        TResult data(List<int> seasonsNameList,
+            List<EpisodesDatum> episodesList, int currentSeasonId),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -736,8 +736,8 @@ class _$_EpisodesErrorState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<SeasonNameModel> seasonsNameList,
-        List<EpisodeModel> episodesList, int currentSeasonId),
+    TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
+        int currentSeasonId),
     TResult error(),
     @required TResult orElse(),
   }) {

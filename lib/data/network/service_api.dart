@@ -4,6 +4,8 @@ import 'package:forth_flutter/data/network/dio_settings.dart';
 import 'package:forth_flutter/data/network/models/character_model.dart';
 import 'package:forth_flutter/data/network/models/characters_model.dart';
 
+import 'models/episodes_model.dart';
+
 class ServiceApi {
   DioSettings _dioSettings;
   Dio _dio;
@@ -18,7 +20,7 @@ class ServiceApi {
     _dio = _dioSettings.dio;
   }
 
-  /// Название запроса
+  /// Запрос списка всех персонажей
   Future<List<CharactersDatum>> getCharacters() async {
     Response<String> response = await _dio.get(
       "api/Characters/GetAll?PageNumber=1&PageSize=100",
@@ -26,6 +28,15 @@ class ServiceApi {
     return charactersModelFromJson(response.toString()).data;
   }
 
+  /// Запрос списка всех эпизодов
+  Future<List<EpisodesDatum>> getEpisodes() async {
+    Response<String> response = await _dio.get(
+      "api/Episodes/GetAll?PageNumber=1&PageSize=100",
+    );
+    return episodesModelFromJson(response.toString()).data;
+  }
+
+  /// Запрос списка данных по персонажу
   Future<CharacterData> getCharacter(String id) async {
     Response<String> response = await _dio.get(
       "api/Characters/GetById?Id=$id",

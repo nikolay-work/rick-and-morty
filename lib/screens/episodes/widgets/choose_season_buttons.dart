@@ -6,7 +6,7 @@ import 'package:forth_flutter/theme/text_theme.dart';
 import '../view_model.dart';
 
 class ChooseSeasonButtons extends StatelessWidget {
-  final List<SeasonNameModel> list;
+  final List<int> list;
   final int currentSeasonId;
 
   const ChooseSeasonButtons({Key key, this.list, this.currentSeasonId})
@@ -21,7 +21,7 @@ class ChooseSeasonButtons extends StatelessWidget {
           itemBuilder: (context, index) => TextButton(
                 onPressed: () => BlocProvider.of<EpisodesBloc>(context).add(
                     EpisodesEvent.changeSeason(currentSeasonId: index + 1)),
-                child: Text(list[index].name,
+                child: Text("СЕЗОН ${list[index]}",
                     style: (currentSeasonId == (index + 1))
                         ? TextThemes.white_14_500_2
                         : TextThemes.blue_14_500),
