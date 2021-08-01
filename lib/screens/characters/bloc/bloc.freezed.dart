@@ -285,7 +285,8 @@ class _$CharactersStateTearOff {
   }
 
 // ignore: unused_element
-  _CharactersDataState data({List<Datum> charactersList, bool isGrid}) {
+  _CharactersDataState data(
+      {List<CharactersDatum> charactersList, bool isGrid}) {
     return _CharactersDataState(
       charactersList: charactersList,
       isGrid: isGrid,
@@ -308,14 +309,14 @@ mixin _$CharactersState {
   TResult when<TResult extends Object>({
     @required TResult view(),
     @required TResult loading(),
-    @required TResult data(List<Datum> charactersList, bool isGrid),
+    @required TResult data(List<CharactersDatum> charactersList, bool isGrid),
     @required TResult error(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult view(),
     TResult loading(),
-    TResult data(List<Datum> charactersList, bool isGrid),
+    TResult data(List<CharactersDatum> charactersList, bool isGrid),
     TResult error(),
     @required TResult orElse(),
   });
@@ -402,7 +403,7 @@ class _$_CharactersViewState
   TResult when<TResult extends Object>({
     @required TResult view(),
     @required TResult loading(),
-    @required TResult data(List<Datum> charactersList, bool isGrid),
+    @required TResult data(List<CharactersDatum> charactersList, bool isGrid),
     @required TResult error(),
   }) {
     assert(view != null);
@@ -417,7 +418,7 @@ class _$_CharactersViewState
   TResult maybeWhen<TResult extends Object>({
     TResult view(),
     TResult loading(),
-    TResult data(List<Datum> charactersList, bool isGrid),
+    TResult data(List<CharactersDatum> charactersList, bool isGrid),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -513,7 +514,7 @@ class _$_CharactersLoadingState
   TResult when<TResult extends Object>({
     @required TResult view(),
     @required TResult loading(),
-    @required TResult data(List<Datum> charactersList, bool isGrid),
+    @required TResult data(List<CharactersDatum> charactersList, bool isGrid),
     @required TResult error(),
   }) {
     assert(view != null);
@@ -528,7 +529,7 @@ class _$_CharactersLoadingState
   TResult maybeWhen<TResult extends Object>({
     TResult view(),
     TResult loading(),
-    TResult data(List<Datum> charactersList, bool isGrid),
+    TResult data(List<CharactersDatum> charactersList, bool isGrid),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -580,7 +581,7 @@ abstract class _$CharactersDataStateCopyWith<$Res> {
   factory _$CharactersDataStateCopyWith(_CharactersDataState value,
           $Res Function(_CharactersDataState) then) =
       __$CharactersDataStateCopyWithImpl<$Res>;
-  $Res call({List<Datum> charactersList, bool isGrid});
+  $Res call({List<CharactersDatum> charactersList, bool isGrid});
 }
 
 /// @nodoc
@@ -602,7 +603,7 @@ class __$CharactersDataStateCopyWithImpl<$Res>
     return _then(_CharactersDataState(
       charactersList: charactersList == freezed
           ? _value.charactersList
-          : charactersList as List<Datum>,
+          : charactersList as List<CharactersDatum>,
       isGrid: isGrid == freezed ? _value.isGrid : isGrid as bool,
     ));
   }
@@ -615,7 +616,7 @@ class _$_CharactersDataState
   const _$_CharactersDataState({this.charactersList, this.isGrid});
 
   @override
-  final List<Datum> charactersList;
+  final List<CharactersDatum> charactersList;
   @override
   final bool isGrid;
 
@@ -661,7 +662,7 @@ class _$_CharactersDataState
   TResult when<TResult extends Object>({
     @required TResult view(),
     @required TResult loading(),
-    @required TResult data(List<Datum> charactersList, bool isGrid),
+    @required TResult data(List<CharactersDatum> charactersList, bool isGrid),
     @required TResult error(),
   }) {
     assert(view != null);
@@ -676,7 +677,7 @@ class _$_CharactersDataState
   TResult maybeWhen<TResult extends Object>({
     TResult view(),
     TResult loading(),
-    TResult data(List<Datum> charactersList, bool isGrid),
+    TResult data(List<CharactersDatum> charactersList, bool isGrid),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -721,9 +722,10 @@ class _$_CharactersDataState
 
 abstract class _CharactersDataState implements CharactersState {
   const factory _CharactersDataState(
-      {List<Datum> charactersList, bool isGrid}) = _$_CharactersDataState;
+      {List<CharactersDatum> charactersList,
+      bool isGrid}) = _$_CharactersDataState;
 
-  List<Datum> get charactersList;
+  List<CharactersDatum> get charactersList;
   bool get isGrid;
   @JsonKey(ignore: true)
   _$CharactersDataStateCopyWith<_CharactersDataState> get copyWith;
@@ -778,7 +780,7 @@ class _$_CharactersErrorState
   TResult when<TResult extends Object>({
     @required TResult view(),
     @required TResult loading(),
-    @required TResult data(List<Datum> charactersList, bool isGrid),
+    @required TResult data(List<CharactersDatum> charactersList, bool isGrid),
     @required TResult error(),
   }) {
     assert(view != null);
@@ -793,7 +795,7 @@ class _$_CharactersErrorState
   TResult maybeWhen<TResult extends Object>({
     TResult view(),
     TResult loading(),
-    TResult data(List<Datum> charactersList, bool isGrid),
+    TResult data(List<CharactersDatum> charactersList, bool isGrid),
     TResult error(),
     @required TResult orElse(),
   }) {

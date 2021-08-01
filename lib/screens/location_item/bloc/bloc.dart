@@ -15,7 +15,7 @@ part 'state.dart';
 class LocationItemBloc extends Bloc<LocationItemEvent, LocationItemState> {
   LocationItemModel _locationData;
   final _repository = Repository();
-  List<Datum> charactersList = List<Datum>();
+  List<CharactersDatum> charactersList = List<CharactersDatum>();
   //List<CharacterModel> _charactersList;
   int id;
 

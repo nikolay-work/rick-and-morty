@@ -23,7 +23,7 @@ class CharactersModel {
   final bool succeeded;
   final dynamic message;
   final dynamic error;
-  final List<Datum> data;
+  final List<CharactersDatum> data;
 
   factory CharactersModel.fromJson(Map<String, dynamic> json) =>
       CharactersModel(
@@ -31,7 +31,8 @@ class CharactersModel {
         succeeded: json["succeeded"],
         message: json["message"],
         error: json["error"],
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        data: List<CharactersDatum>.from(
+            json["data"].map((x) => CharactersDatum.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -43,8 +44,8 @@ class CharactersModel {
       };
 }
 
-class Datum {
-  Datum({
+class CharactersDatum {
+  CharactersDatum({
     this.id,
     this.firstName,
     this.lastName,
@@ -72,7 +73,8 @@ class Datum {
   final String placeOfBirth;
   final List<Episode> episodes;
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory CharactersDatum.fromJson(Map<String, dynamic> json) =>
+      CharactersDatum(
         id: json["id"],
         firstName: json["firstName"],
         lastName: json["lastName"],

@@ -7,16 +7,16 @@ import 'package:forth_flutter/screens/location_item/view_model.dart';
 import 'package:forth_flutter/screens/locations/view_model.dart';
 import 'images.dart';
 
-List<CharacterModel> charactersList = [
-  CharacterModel(1, 'Рик Cанчез', true, true, 'Человек', Images.character1),
-  CharacterModel(
-      2, 'Директор Агентства', true, true, 'Человек', Images.character2),
-  CharacterModel(3, 'Морти Смит', true, true, 'Человек', Images.character3),
-  CharacterModel(4, 'Саммер Смит', true, true, 'Человек', Images.character4),
-  CharacterModel(
-      5, 'Альберт Эйнштейн', false, true, 'Человек', Images.character5),
-  CharacterModel(6, 'Алан Райлс', false, true, 'Человек', Images.character6),
-];
+// List<CharacterModel> charactersList = [
+//   CharacterModel(1, 'Рик Cанчез', true, true, 'Человек', Images.character1),
+//   CharacterModel(
+//       2, 'Директор Агентства', true, true, 'Человек', Images.character2),
+//   CharacterModel(3, 'Морти Смит', true, true, 'Человек', Images.character3),
+//   CharacterModel(4, 'Саммер Смит', true, true, 'Человек', Images.character4),
+//   CharacterModel(
+//       5, 'Альберт Эйнштейн', false, true, 'Человек', Images.character5),
+//   CharacterModel(6, 'Алан Райлс', false, true, 'Человек', Images.character6),
+// ];
 
 String characterAbout =
     'Главный протагонист мультсериала «Рик и Морти». Безумный ученый, чей алкоголизм, безрассудность и социопатия заставляют беспокоиться семью его дочери.';

@@ -14,7 +14,7 @@ part 'state.dart';
 class EpisodeItemBloc extends Bloc<EpisodeItemEvent, EpisodeItemState> {
   EpisodeItemModel _episodeData;
   final _repository = Repository();
-  List<Datum> charactersList = List<Datum>();
+  List<CharactersDatum> charactersList = List<CharactersDatum>();
   // List<CharacterModel> _charactersList;
   int id;
 

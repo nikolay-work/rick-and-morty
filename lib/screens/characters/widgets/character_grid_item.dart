@@ -5,7 +5,7 @@ import 'package:forth_flutter/theme/text_theme.dart';
 import 'package:forth_flutter/data/network/models/character_model.dart';
 
 class CharacterGridItem extends StatelessWidget {
-  final Datum characterData;
+  final CharactersDatum characterData;
 
   CharacterGridItem(this.characterData);
 

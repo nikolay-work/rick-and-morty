@@ -168,7 +168,7 @@ class _$LocationItemStateTearOff {
 // ignore: unused_element
   _LocationItemDataState data(
       {@required LocationItemModel locationData,
-      @required List<Datum> charactersList}) {
+      @required List<CharactersDatum> charactersList}) {
     return _LocationItemDataState(
       locationData: locationData,
       charactersList: charactersList,
@@ -196,15 +196,16 @@ mixin _$LocationItemState {
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(
-            LocationItemModel locationData, List<Datum> charactersList),
+        TResult data(LocationItemModel locationData,
+            List<CharactersDatum> charactersList),
     @required TResult errorLoadItem(),
     @required TResult errorLoadCharacters(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(LocationItemModel locationData, List<Datum> charactersList),
+    TResult data(
+        LocationItemModel locationData, List<CharactersDatum> charactersList),
     TResult errorLoadItem(),
     TResult errorLoadCharacters(),
     @required TResult orElse(),
@@ -294,8 +295,8 @@ class _$_LocationItemLoadingState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(
-            LocationItemModel locationData, List<Datum> charactersList),
+        TResult data(LocationItemModel locationData,
+            List<CharactersDatum> charactersList),
     @required TResult errorLoadItem(),
     @required TResult errorLoadCharacters(),
   }) {
@@ -310,7 +311,8 @@ class _$_LocationItemLoadingState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(LocationItemModel locationData, List<Datum> charactersList),
+    TResult data(
+        LocationItemModel locationData, List<CharactersDatum> charactersList),
     TResult errorLoadItem(),
     TResult errorLoadCharacters(),
     @required TResult orElse(),
@@ -364,7 +366,8 @@ abstract class _$LocationItemDataStateCopyWith<$Res> {
   factory _$LocationItemDataStateCopyWith(_LocationItemDataState value,
           $Res Function(_LocationItemDataState) then) =
       __$LocationItemDataStateCopyWithImpl<$Res>;
-  $Res call({LocationItemModel locationData, List<Datum> charactersList});
+  $Res call(
+      {LocationItemModel locationData, List<CharactersDatum> charactersList});
 }
 
 /// @nodoc
@@ -389,7 +392,7 @@ class __$LocationItemDataStateCopyWithImpl<$Res>
           : locationData as LocationItemModel,
       charactersList: charactersList == freezed
           ? _value.charactersList
-          : charactersList as List<Datum>,
+          : charactersList as List<CharactersDatum>,
     ));
   }
 }
@@ -406,7 +409,7 @@ class _$_LocationItemDataState
   @override
   final LocationItemModel locationData;
   @override
-  final List<Datum> charactersList;
+  final List<CharactersDatum> charactersList;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -451,8 +454,8 @@ class _$_LocationItemDataState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(
-            LocationItemModel locationData, List<Datum> charactersList),
+        TResult data(LocationItemModel locationData,
+            List<CharactersDatum> charactersList),
     @required TResult errorLoadItem(),
     @required TResult errorLoadCharacters(),
   }) {
@@ -467,7 +470,8 @@ class _$_LocationItemDataState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(LocationItemModel locationData, List<Datum> charactersList),
+    TResult data(
+        LocationItemModel locationData, List<CharactersDatum> charactersList),
     TResult errorLoadItem(),
     TResult errorLoadCharacters(),
     @required TResult orElse(),
@@ -514,11 +518,12 @@ class _$_LocationItemDataState
 
 abstract class _LocationItemDataState implements LocationItemState {
   const factory _LocationItemDataState(
-      {@required LocationItemModel locationData,
-      @required List<Datum> charactersList}) = _$_LocationItemDataState;
+          {@required LocationItemModel locationData,
+          @required List<CharactersDatum> charactersList}) =
+      _$_LocationItemDataState;
 
   LocationItemModel get locationData;
-  List<Datum> get charactersList;
+  List<CharactersDatum> get charactersList;
   @JsonKey(ignore: true)
   _$LocationItemDataStateCopyWith<_LocationItemDataState> get copyWith;
 }
@@ -575,8 +580,8 @@ class _$_LocationLoadItemErrorState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(
-            LocationItemModel locationData, List<Datum> charactersList),
+        TResult data(LocationItemModel locationData,
+            List<CharactersDatum> charactersList),
     @required TResult errorLoadItem(),
     @required TResult errorLoadCharacters(),
   }) {
@@ -591,7 +596,8 @@ class _$_LocationLoadItemErrorState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(LocationItemModel locationData, List<Datum> charactersList),
+    TResult data(
+        LocationItemModel locationData, List<CharactersDatum> charactersList),
     TResult errorLoadItem(),
     TResult errorLoadCharacters(),
     @required TResult orElse(),
@@ -695,8 +701,8 @@ class _$_LocationLoadCharactersErrorState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(
-            LocationItemModel locationData, List<Datum> charactersList),
+        TResult data(LocationItemModel locationData,
+            List<CharactersDatum> charactersList),
     @required TResult errorLoadItem(),
     @required TResult errorLoadCharacters(),
   }) {
@@ -711,7 +717,8 @@ class _$_LocationLoadCharactersErrorState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(LocationItemModel locationData, List<Datum> charactersList),
+    TResult data(
+        LocationItemModel locationData, List<CharactersDatum> charactersList),
     TResult errorLoadItem(),
     TResult errorLoadCharacters(),
     @required TResult orElse(),

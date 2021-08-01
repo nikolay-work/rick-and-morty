@@ -4,7 +4,7 @@ part of 'bloc.dart';
 abstract class CharacterProfileState with _$CharacterProfileState {
   const factory CharacterProfileState.loading() = _CharacterProfileLoadingState;
   const factory CharacterProfileState.data({
-    @required CharacterProfileModel characterData,
+    @required CharacterData characterData,
   }) = _CharacterProfileDataState;
   const factory CharacterProfileState.error() = _CharacterProfileErrorState;
 }

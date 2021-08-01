@@ -7,7 +7,7 @@ import '../data/network/models/character_model.dart';
 import 'character_list_item.dart';
 
 class CharactersList extends StatelessWidget {
-  final List<Datum> charactersList;
+  final List<CharactersDatum> charactersList;
   final bool showIconArrowForward;
   final bool scrollable;
 

@@ -7,7 +7,7 @@ import '../../../data/network/models/character_model.dart';
 import 'character_grid_item.dart';
 
 class CharactersGrid extends StatelessWidget {
-  final List<Datum> charactersList;
+  final List<CharactersDatum> charactersList;
 
   const CharactersGrid({
     Key key,

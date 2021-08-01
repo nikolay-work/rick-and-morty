@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:forth_flutter/data/network/dio_settings.dart';
+import 'package:forth_flutter/data/network/models/character_model.dart';
 import 'package:forth_flutter/data/network/models/characters_model.dart';
 
 class ServiceApi {
@@ -17,10 +19,17 @@ class ServiceApi {
   }
 
   /// Название запроса
-  Future<List<Datum>> getCharacters() async {
+  Future<List<CharactersDatum>> getCharacters() async {
     Response<String> response = await _dio.get(
       "api/Characters/GetAll?PageNumber=1&PageSize=100",
     );
     return charactersModelFromJson(response.toString()).data;
+  }
+
+  Future<CharacterData> getCharacter(String id) async {
+    Response<String> response = await _dio.get(
+      "api/Characters/GetById?Id=$id",
+    );
+    return characterModelFromJson(response.toString()).data;
   }
 }

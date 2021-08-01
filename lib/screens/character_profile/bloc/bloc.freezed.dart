@@ -170,8 +170,7 @@ class _$CharacterProfileStateTearOff {
   }
 
 // ignore: unused_element
-  _CharacterProfileDataState data(
-      {@required CharacterProfileModel characterData}) {
+  _CharacterProfileDataState data({@required CharacterData characterData}) {
     return _CharacterProfileDataState(
       characterData: characterData,
     );
@@ -192,13 +191,13 @@ mixin _$CharacterProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(CharacterProfileModel characterData),
+    @required TResult data(CharacterData characterData),
     @required TResult error(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(CharacterProfileModel characterData),
+    TResult data(CharacterData characterData),
     TResult error(),
     @required TResult orElse(),
   });
@@ -286,7 +285,7 @@ class _$_CharacterProfileLoadingState
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(CharacterProfileModel characterData),
+    @required TResult data(CharacterData characterData),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -299,7 +298,7 @@ class _$_CharacterProfileLoadingState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(CharacterProfileModel characterData),
+    TResult data(CharacterData characterData),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -349,7 +348,7 @@ abstract class _$CharacterProfileDataStateCopyWith<$Res> {
   factory _$CharacterProfileDataStateCopyWith(_CharacterProfileDataState value,
           $Res Function(_CharacterProfileDataState) then) =
       __$CharacterProfileDataStateCopyWithImpl<$Res>;
-  $Res call({CharacterProfileModel characterData});
+  $Res call({CharacterData characterData});
 }
 
 /// @nodoc
@@ -371,7 +370,7 @@ class __$CharacterProfileDataStateCopyWithImpl<$Res>
     return _then(_CharacterProfileDataState(
       characterData: characterData == freezed
           ? _value.characterData
-          : characterData as CharacterProfileModel,
+          : characterData as CharacterData,
     ));
   }
 }
@@ -384,7 +383,7 @@ class _$_CharacterProfileDataState
       : assert(characterData != null);
 
   @override
-  final CharacterProfileModel characterData;
+  final CharacterData characterData;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -423,7 +422,7 @@ class _$_CharacterProfileDataState
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(CharacterProfileModel characterData),
+    @required TResult data(CharacterData characterData),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -436,7 +435,7 @@ class _$_CharacterProfileDataState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(CharacterProfileModel characterData),
+    TResult data(CharacterData characterData),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -478,10 +477,9 @@ class _$_CharacterProfileDataState
 
 abstract class _CharacterProfileDataState implements CharacterProfileState {
   const factory _CharacterProfileDataState(
-          {@required CharacterProfileModel characterData}) =
-      _$_CharacterProfileDataState;
+      {@required CharacterData characterData}) = _$_CharacterProfileDataState;
 
-  CharacterProfileModel get characterData;
+  CharacterData get characterData;
   @JsonKey(ignore: true)
   _$CharacterProfileDataStateCopyWith<_CharacterProfileDataState> get copyWith;
 }
@@ -536,7 +534,7 @@ class _$_CharacterProfileErrorState
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(CharacterProfileModel characterData),
+    @required TResult data(CharacterData characterData),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -549,7 +547,7 @@ class _$_CharacterProfileErrorState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(CharacterProfileModel characterData),
+    TResult data(CharacterData characterData),
     TResult error(),
     @required TResult orElse(),
   }) {

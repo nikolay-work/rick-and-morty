@@ -8,7 +8,7 @@ import 'package:forth_flutter/theme/text_theme.dart';
 import 'package:forth_flutter/data/network/models/character_model.dart';
 
 class CharacterListItem extends StatelessWidget {
-  final Datum characterData;
+  final CharactersDatum characterData;
   final bool showIconArrowForward;
 
   CharacterListItem(this.characterData, this.showIconArrowForward);

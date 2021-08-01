@@ -43,7 +43,7 @@ class CharacterProfile extends StatelessWidget {
                       alignment: Alignment.topCenter,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(_data.characterData.avatar),
+                          image: NetworkImage(_data.characterData.imageName),
                           fit: BoxFit.fitWidth,
                           alignment: Alignment.topCenter,
                         ),
@@ -85,14 +85,16 @@ class CharacterProfile extends StatelessWidget {
                                   children: [
                                     //Text(arguments['characterId']),
                                     Text(
-                                      _data.characterData.name,
+                                      _data.characterData.fullName,
                                       style: TextThemes.white_34_400,
                                     ),
                                     Text(
-                                      _data.characterData.status
-                                          ? 'Живой'
-                                          : 'Мертвый',
-                                      style: TextThemes.green_10_500,
+                                      _data.characterData.status == 0
+                                          ? 'ЖИВОЙ'
+                                          : 'МЕРТВЫЙ',
+                                      style: _data.characterData.status == 0
+                                          ? TextThemes.green_10_500
+                                          : TextThemes.red_10_500,
                                     ),
                                     const SizedBox(
                                       height: 26,
@@ -124,7 +126,8 @@ class CharacterProfile extends StatelessWidget {
                                                   style: TextThemes.blue_12_400,
                                                 ),
                                                 Text(
-                                                  _data.characterData.isMan
+                                                  _data.characterData.gender ==
+                                                          0
                                                       ? 'Мужской'
                                                       : 'Женский',
                                                   style: TextThemes.white_14_400
@@ -143,7 +146,7 @@ class CharacterProfile extends StatelessWidget {
                                                   style: TextThemes.blue_12_400,
                                                 ),
                                                 Text(
-                                                  _data.characterData.kind,
+                                                  _data.characterData.race,
                                                   style: TextThemes.white_14_400
                                                       .copyWith(height: 1.8),
                                                 ),
@@ -170,7 +173,8 @@ class CharacterProfile extends StatelessWidget {
                                                   style: TextThemes.blue_12_400,
                                                 ),
                                                 Text(
-                                                  _data.characterData.from,
+                                                  _data.characterData.location
+                                                      .name,
                                                   style: TextThemes.white_14_400
                                                       .copyWith(height: 1.8),
                                                 ),
@@ -270,8 +274,8 @@ class CharacterProfile extends StatelessWidget {
                                   backgroundColor: ColorPalette.blueBackground,
                                   child: CircleAvatar(
                                     radius: 73,
-                                    backgroundImage:
-                                        AssetImage(_data.characterData.avatar),
+                                    backgroundImage: NetworkImage(
+                                        _data.characterData.imageName),
                                   ),
                                 ),
                               ),

@@ -168,7 +168,7 @@ class _$EpisodeItemStateTearOff {
 // ignore: unused_element
   _EpisodeItemDataState data(
       {@required EpisodeItemModel episodeData,
-      @required List<Datum> charactersList}) {
+      @required List<CharactersDatum> charactersList}) {
     return _EpisodeItemDataState(
       episodeData: episodeData,
       charactersList: charactersList,
@@ -196,14 +196,16 @@ mixin _$EpisodeItemState {
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+        TResult data(
+            EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     @required TResult episodeLoadError(),
     @required TResult charactersLoadError(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+    TResult data(
+        EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     TResult episodeLoadError(),
     TResult charactersLoadError(),
     @required TResult orElse(),
@@ -292,7 +294,8 @@ class _$_EpisodeItemLoadingState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+        TResult data(
+            EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     @required TResult episodeLoadError(),
     @required TResult charactersLoadError(),
   }) {
@@ -307,7 +310,8 @@ class _$_EpisodeItemLoadingState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+    TResult data(
+        EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     TResult episodeLoadError(),
     TResult charactersLoadError(),
     @required TResult orElse(),
@@ -360,7 +364,8 @@ abstract class _$EpisodeItemDataStateCopyWith<$Res> {
   factory _$EpisodeItemDataStateCopyWith(_EpisodeItemDataState value,
           $Res Function(_EpisodeItemDataState) then) =
       __$EpisodeItemDataStateCopyWithImpl<$Res>;
-  $Res call({EpisodeItemModel episodeData, List<Datum> charactersList});
+  $Res call(
+      {EpisodeItemModel episodeData, List<CharactersDatum> charactersList});
 }
 
 /// @nodoc
@@ -385,7 +390,7 @@ class __$EpisodeItemDataStateCopyWithImpl<$Res>
           : episodeData as EpisodeItemModel,
       charactersList: charactersList == freezed
           ? _value.charactersList
-          : charactersList as List<Datum>,
+          : charactersList as List<CharactersDatum>,
     ));
   }
 }
@@ -402,7 +407,7 @@ class _$_EpisodeItemDataState
   @override
   final EpisodeItemModel episodeData;
   @override
-  final List<Datum> charactersList;
+  final List<CharactersDatum> charactersList;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -447,7 +452,8 @@ class _$_EpisodeItemDataState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+        TResult data(
+            EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     @required TResult episodeLoadError(),
     @required TResult charactersLoadError(),
   }) {
@@ -462,7 +468,8 @@ class _$_EpisodeItemDataState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+    TResult data(
+        EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     TResult episodeLoadError(),
     TResult charactersLoadError(),
     @required TResult orElse(),
@@ -508,11 +515,12 @@ class _$_EpisodeItemDataState
 
 abstract class _EpisodeItemDataState implements EpisodeItemState {
   const factory _EpisodeItemDataState(
-      {@required EpisodeItemModel episodeData,
-      @required List<Datum> charactersList}) = _$_EpisodeItemDataState;
+          {@required EpisodeItemModel episodeData,
+          @required List<CharactersDatum> charactersList}) =
+      _$_EpisodeItemDataState;
 
   EpisodeItemModel get episodeData;
-  List<Datum> get charactersList;
+  List<CharactersDatum> get charactersList;
   @JsonKey(ignore: true)
   _$EpisodeItemDataStateCopyWith<_EpisodeItemDataState> get copyWith;
 }
@@ -567,7 +575,8 @@ class _$_EpisodeLoadErrorState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+        TResult data(
+            EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     @required TResult episodeLoadError(),
     @required TResult charactersLoadError(),
   }) {
@@ -582,7 +591,8 @@ class _$_EpisodeLoadErrorState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+    TResult data(
+        EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     TResult episodeLoadError(),
     TResult charactersLoadError(),
     @required TResult orElse(),
@@ -682,7 +692,8 @@ class _$_CharactersLoadErrorState
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required
-        TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+        TResult data(
+            EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     @required TResult episodeLoadError(),
     @required TResult charactersLoadError(),
   }) {
@@ -697,7 +708,8 @@ class _$_CharactersLoadErrorState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(EpisodeItemModel episodeData, List<Datum> charactersList),
+    TResult data(
+        EpisodeItemModel episodeData, List<CharactersDatum> charactersList),
     TResult episodeLoadError(),
     TResult charactersLoadError(),
     @required TResult orElse(),
