@@ -36,7 +36,7 @@ class LocationItem extends StatelessWidget {
                         height: 298,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage(_data.locationData.image),
+                            image: NetworkImage(_data.locationData.imageName),
                             fit: BoxFit.fitHeight,
                           ),
                         ),
@@ -62,14 +62,14 @@ class LocationItem extends StatelessWidget {
                               style: TextThemes.white_24_700,
                             ),
                             Text(
-                              'Мир · ' + _data.locationData.location,
+                              'Мир · ' + _data.locationData.measurements,
                               style: TextThemes.grey_12_400,
                             ),
                             const SizedBox(
                               height: 28,
                             ),
                             Text(
-                              _data.locationData.description,
+                              _data.locationData.about,
                               style: TextThemes.white_13_400_2,
                             ),
                             const SizedBox(

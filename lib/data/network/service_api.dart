@@ -6,6 +6,7 @@ import 'package:forth_flutter/data/network/models/characters_model.dart';
 
 import 'models/episode_model.dart';
 import 'models/episodes_model.dart';
+import 'models/location_model.dart';
 import 'models/locations_model.dart';
 
 class ServiceApi {
@@ -60,5 +61,13 @@ class ServiceApi {
       "api/Episodes/GetById?Id=$id",
     );
     return episodeModelFromJson(response.toString()).data;
+  }
+
+  /// Запрос списка данных по локации
+  Future<LocationData> getLocation(String id) async {
+    Response<String> response = await _dio.get(
+      "api/Locations/GetById?Id=$id",
+    );
+    return locationModelFromJson(response.toString()).data;
   }
 }

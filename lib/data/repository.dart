@@ -3,6 +3,7 @@ import 'package:forth_flutter/data/network/models/character_model.dart';
 import 'network/models/characters_model.dart';
 import 'network/models/episode_model.dart';
 import 'network/models/episodes_model.dart';
+import 'network/models/location_model.dart';
 import 'network/models/locations_model.dart';
 import 'network/service_api.dart';
 
@@ -36,6 +37,12 @@ class Repository {
   // Получение эпизода
   Future<EpisodeData> getEpisode(String id) async {
     final response = await _serviceApi.getEpisode(id);
+    return response;
+  }
+
+  // Получение локации
+  Future<LocationData> getLocation(String id) async {
+    final response = await _serviceApi.getLocation(id);
     return response;
   }
 }
