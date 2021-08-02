@@ -7,6 +7,7 @@ import 'package:forth_flutter/components/item_frame.dart';
 import 'package:forth_flutter/resources/icons.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:intl/intl.dart';
 
 import 'bloc/bloc.dart';
 
@@ -38,7 +39,7 @@ class EpisodeItem extends StatelessWidget {
                         height: 298,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage(_data.episodeData.picture),
+                            image: NetworkImage(_data.episodeData.imageName),
                             fit: BoxFit.fitHeight,
                           ),
                         ),
@@ -66,7 +67,7 @@ class EpisodeItem extends StatelessWidget {
                                 children: [
                                   Align(
                                     child: Text(
-                                      _data.episodeData.title,
+                                      _data.episodeData.name,
                                       textAlign: TextAlign.center,
                                       style: TextThemes.white_24_700,
                                     ),
@@ -74,7 +75,7 @@ class EpisodeItem extends StatelessWidget {
                                   Align(
                                     child: Text(
                                       'СЕРИЯ ' +
-                                          _data.episodeData.episode.toString(),
+                                          _data.episodeData.series.toString(),
                                       style: TextThemes.blue2_10_500,
                                     ),
                                   ),
@@ -82,7 +83,7 @@ class EpisodeItem extends StatelessWidget {
                                     height: 36,
                                   ),
                                   Text(
-                                    _data.episodeData.description,
+                                    _data.episodeData.plot,
                                     textAlign: TextAlign.justify,
                                     style: TextThemes.white_13_400_2,
                                   ),
@@ -94,7 +95,8 @@ class EpisodeItem extends StatelessWidget {
                                     style: TextThemes.blue_12_400,
                                   ),
                                   Text(
-                                    _data.episodeData.date,
+                                    DateFormat('yyyy-MM-dd')
+                                        .format(_data.episodeData.premiere),
                                     style: TextThemes.white_14_400,
                                   ),
                                   const SizedBox(
@@ -124,7 +126,8 @@ class EpisodeItem extends StatelessWidget {
                                     height: 24,
                                   ),
                                   CharactersList(
-                                    charactersList: _data.charactersList,
+                                    charactersList:
+                                        _data.episodeData.characters,
                                     showIconArrowForward: true,
                                     scrollable: false,
                                   ),

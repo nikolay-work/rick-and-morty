@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:forth_flutter/data/network/models/episode.dart';
+import 'package:forth_flutter/data/network/models/character_model.dart';
+import 'package:forth_flutter/data/network/models/episode_model.dart';
 
 import 'package:forth_flutter/screens/character_profile/widgets/episode_list_item.dart';
 
 class EpisodesList extends StatelessWidget {
-  final List<EpisodeModel> episodesList;
+  final List<Episode> episodesList;
 
   const EpisodesList({Key key, this.episodesList}) : super(key: key);
 

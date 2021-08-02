@@ -259,7 +259,8 @@ class CharacterProfile extends StatelessWidget {
                                       height: 25,
                                     ),
                                     EpisodesList(
-                                      episodesList: episodesList,
+                                      episodesList:
+                                          _data.characterData.episodes,
                                     ),
                                     const SizedBox(
                                       height: 25,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:forth_flutter/data/network/models/episode.dart';
+import 'package:forth_flutter/data/network/models/episode_model.dart';
 import 'package:forth_flutter/data/network/models/episodes_model.dart';
 
 import 'package:forth_flutter/theme/text_theme.dart';

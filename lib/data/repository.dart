@@ -1,6 +1,7 @@
 import 'package:forth_flutter/data/network/models/character_model.dart';
 
 import 'network/models/characters_model.dart';
+import 'network/models/episode_model.dart';
 import 'network/models/episodes_model.dart';
 import 'network/service_api.dart';
 
@@ -22,6 +23,12 @@ class Repository {
   // Получение персонажа
   Future<CharacterData> getCharacter(String id) async {
     final response = await _serviceApi.getCharacter(id);
+    return response;
+  }
+
+  // Получение списка эпизода
+  Future<EpisodeData> getEpisode(String id) async {
+    final response = await _serviceApi.getEpisode(id);
     return response;
   }
 }

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:forth_flutter/data/network/models/episode.dart';
+import 'package:forth_flutter/data/network/models/episode_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:forth_flutter/data/network/models/episodes_model.dart';
 import 'package:forth_flutter/data/repository.dart';

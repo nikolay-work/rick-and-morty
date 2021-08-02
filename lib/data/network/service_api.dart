@@ -4,6 +4,7 @@ import 'package:forth_flutter/data/network/dio_settings.dart';
 import 'package:forth_flutter/data/network/models/character_model.dart';
 import 'package:forth_flutter/data/network/models/characters_model.dart';
 
+import 'models/episode_model.dart';
 import 'models/episodes_model.dart';
 
 class ServiceApi {
@@ -42,5 +43,13 @@ class ServiceApi {
       "api/Characters/GetById?Id=$id",
     );
     return characterModelFromJson(response.toString()).data;
+  }
+
+  /// Запрос списка данных по эпизоду
+  Future<EpisodeData> getEpisode(String id) async {
+    Response<String> response = await _dio.get(
+      "api/Episodes/GetById?Id=$id",
+    );
+    return episodeModelFromJson(response.toString()).data;
   }
 }

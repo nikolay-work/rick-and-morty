@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:forth_flutter/data/network/models/episode.dart';
+import 'package:forth_flutter/data/network/models/character_model.dart';
+import 'package:forth_flutter/data/network/models/episode_model.dart';
 import 'package:forth_flutter/resources/icons.dart';
 
 import 'package:forth_flutter/theme/text_theme.dart';
 
 class EpisodeListItem extends StatelessWidget {
-  final EpisodeModel episodeData;
+  final Episode episodeData;
 
   EpisodeListItem(this.episodeData);
 
@@ -28,7 +29,7 @@ class EpisodeListItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: AssetImage(episodeData.picture),
+                  image: NetworkImage(episodeData.imageName),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -41,15 +42,15 @@ class EpisodeListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'СЕРИЯ ${episodeData.episode.toString()}',
+                      'СЕРИЯ ${episodeData.series.toString()}',
                       style: TextThemes.lightBlue_10_500,
                     ),
                     Text(
-                      episodeData.title,
+                      episodeData.name,
                       style: TextThemes.white_16_500,
                     ),
                     Text(
-                      episodeData.date,
+                      episodeData.premiere.toString(),
                       style: TextThemes.grey_14_400,
                     ),
                   ],

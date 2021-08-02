@@ -1,4 +1,4 @@
-import 'package:forth_flutter/data/network/models/episode.dart';
+import 'package:forth_flutter/data/network/models/episode_model.dart';
 import 'package:forth_flutter/data/network/models/character_model.dart';
 import 'package:forth_flutter/screens/character_profile/view_model.dart';
 import 'package:forth_flutter/screens/episode_item/view_model.dart';
@@ -36,16 +36,16 @@ List<CharacterProfileModel> characterDataList = [
       'Земля C-137', Images.character6),
 ];
 
-List<EpisodeModel> episodesList = [
-  EpisodeModel(1, 'Пилот', 1, '2 декабря 2013', Images.film1),
-  EpisodeModel(2, 'Пёс-газонокосильщик', 2, '9 декабря 2013', Images.film2),
-  EpisodeModel(3, 'Анатомический парк', 3, '16 декабря 2013', Images.film3),
-  EpisodeModel(4, 'М. Найт Шьямал-Инопланетяне!', 4, '13 января 2014 года',
-      Images.film4),
-  EpisodeModel(5, 'Мисикс и разрушение', 5, '20 января 2014', Images.film5),
-  EpisodeModel(6, 'Напиток Рика №9', 6, '20 января 2014', Images.film6),
-  EpisodeModel(7, 'Воспитание Газорпазорпа', 7, '20 января 2014', Images.film7),
-];
+// List<EpisodeModel> episodesList = [
+//   EpisodeModel(1, 'Пилот', 1, '2 декабря 2013', Images.film1),
+//   EpisodeModel(2, 'Пёс-газонокосильщик', 2, '9 декабря 2013', Images.film2),
+//   EpisodeModel(3, 'Анатомический парк', 3, '16 декабря 2013', Images.film3),
+//   EpisodeModel(4, 'М. Найт Шьямал-Инопланетяне!', 4, '13 января 2014 года',
+//       Images.film4),
+//   EpisodeModel(5, 'Мисикс и разрушение', 5, '20 января 2014', Images.film5),
+//   EpisodeModel(6, 'Напиток Рика №9', 6, '20 января 2014', Images.film6),
+//   EpisodeModel(7, 'Воспитание Газорпазорпа', 7, '20 января 2014', Images.film7),
+// ];
 
 String episodeDescription =
     'Зигерионцы помещают Джерри и Рика в симуляцию, чтобы узнать секрет изготовления концен-трирован- ной темной материи.';
