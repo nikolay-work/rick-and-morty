@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:forth_flutter/data/network/models/episode_model.dart';
 import 'package:forth_flutter/data/network/models/episodes_model.dart';
+import 'package:intl/intl.dart';
 
 import 'package:forth_flutter/theme/text_theme.dart';
 
@@ -47,7 +48,8 @@ class EpisodeListItem extends StatelessWidget {
                       style: TextThemes.white_16_500,
                     ),
                     Text(
-                      episodeData.premiere.toString().substring(0, 10),
+                      DateFormat.yMMMMd("ru_RU").format(episodeData.premiere),
+                      //episodeData.premiere.toString().substring(0, 10),
                       style: TextThemes.grey_14_400,
                     ),
                   ],

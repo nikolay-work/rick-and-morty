@@ -95,7 +95,7 @@ class EpisodeItem extends StatelessWidget {
                                     style: TextThemes.blue_12_400,
                                   ),
                                   Text(
-                                    DateFormat('yyyy-MM-dd')
+                                    DateFormat.yMMMMd("ru_RU")
                                         .format(_data.episodeData.premiere),
                                     style: TextThemes.white_14_400,
                                   ),
