@@ -4,7 +4,7 @@ part of 'bloc.dart';
 abstract class LocationsState with _$LocationsState {
   const factory LocationsState.loading() = _LocationsLoadingState;
   const factory LocationsState.data({
-    @required List<LocationModel> locationList,
+    @required List<LocationsDatum> locationList,
   }) = _LocationsDataState;
   const factory LocationsState.error() = _LocationsErrorState;
 }

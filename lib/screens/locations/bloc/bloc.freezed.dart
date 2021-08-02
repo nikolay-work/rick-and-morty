@@ -165,7 +165,7 @@ class _$LocationsStateTearOff {
   }
 
 // ignore: unused_element
-  _LocationsDataState data({@required List<LocationModel> locationList}) {
+  _LocationsDataState data({@required List<LocationsDatum> locationList}) {
     return _LocationsDataState(
       locationList: locationList,
     );
@@ -186,13 +186,13 @@ mixin _$LocationsState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(List<LocationModel> locationList),
+    @required TResult data(List<LocationsDatum> locationList),
     @required TResult error(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<LocationModel> locationList),
+    TResult data(List<LocationsDatum> locationList),
     TResult error(),
     @required TResult orElse(),
   });
@@ -276,7 +276,7 @@ class _$_LocationsLoadingState
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(List<LocationModel> locationList),
+    @required TResult data(List<LocationsDatum> locationList),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -289,7 +289,7 @@ class _$_LocationsLoadingState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<LocationModel> locationList),
+    TResult data(List<LocationsDatum> locationList),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -338,7 +338,7 @@ abstract class _$LocationsDataStateCopyWith<$Res> {
   factory _$LocationsDataStateCopyWith(
           _LocationsDataState value, $Res Function(_LocationsDataState) then) =
       __$LocationsDataStateCopyWithImpl<$Res>;
-  $Res call({List<LocationModel> locationList});
+  $Res call({List<LocationsDatum> locationList});
 }
 
 /// @nodoc
@@ -359,7 +359,7 @@ class __$LocationsDataStateCopyWithImpl<$Res>
     return _then(_LocationsDataState(
       locationList: locationList == freezed
           ? _value.locationList
-          : locationList as List<LocationModel>,
+          : locationList as List<LocationsDatum>,
     ));
   }
 }
@@ -372,7 +372,7 @@ class _$_LocationsDataState
       : assert(locationList != null);
 
   @override
-  final List<LocationModel> locationList;
+  final List<LocationsDatum> locationList;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -409,7 +409,7 @@ class _$_LocationsDataState
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(List<LocationModel> locationList),
+    @required TResult data(List<LocationsDatum> locationList),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -422,7 +422,7 @@ class _$_LocationsDataState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<LocationModel> locationList),
+    TResult data(List<LocationsDatum> locationList),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -464,9 +464,9 @@ class _$_LocationsDataState
 
 abstract class _LocationsDataState implements LocationsState {
   const factory _LocationsDataState(
-      {@required List<LocationModel> locationList}) = _$_LocationsDataState;
+      {@required List<LocationsDatum> locationList}) = _$_LocationsDataState;
 
-  List<LocationModel> get locationList;
+  List<LocationsDatum> get locationList;
   @JsonKey(ignore: true)
   _$LocationsDataStateCopyWith<_LocationsDataState> get copyWith;
 }
@@ -519,7 +519,7 @@ class _$_LocationsErrorState
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult data(List<LocationModel> locationList),
+    @required TResult data(List<LocationsDatum> locationList),
     @required TResult error(),
   }) {
     assert(loading != null);
@@ -532,7 +532,7 @@ class _$_LocationsErrorState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult data(List<LocationModel> locationList),
+    TResult data(List<LocationsDatum> locationList),
     TResult error(),
     @required TResult orElse(),
   }) {

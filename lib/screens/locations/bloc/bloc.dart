@@ -1,4 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:forth_flutter/data/network/models/locations_model.dart';
+import 'package:forth_flutter/data/repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:forth_flutter/resources/variables.dart';
 import 'package:flutter/foundation.dart';
@@ -10,7 +13,9 @@ part 'event.dart';
 part 'state.dart';
 
 class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
-  List<LocationModel> _locationList;
+  final _repository = Repository();
+  //List<LocationModel> _locationList;
+  List<LocationsDatum> _locationList = List<LocationsDatum>();
 
   LocationsBloc() : super(LocationsState.loading());
 
@@ -23,10 +28,21 @@ class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
       _LocationsInitialEvent event) async* {
     yield LocationsState.loading();
     try {
-      _locationList = locationList;
-    } catch (e) {
+      _locationList = await _repository.getLocations();
+    } on DioError catch (e) {
+      print('!!!!!!!!!!!!!!!!!!${e.message}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.error}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.type}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.request}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.response}!!!!!!!!!!!!!!!!!!!');
+
       yield LocationsState.error();
     }
+    // try {
+    //   _locationList = locationList;
+    // } catch (e) {
+    //   yield LocationsState.error();
+    // }
     yield LocationsState.data(
       locationList: _locationList,
     );
