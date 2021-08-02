@@ -49,7 +49,7 @@ class LocationListItem extends StatelessWidget {
                   style: TextThemes.white_20_500,
                 ),
                 Text(
-                  'Мир · ' + locationData.name,
+                  'Мир · ' + locationData.measurements,
                   style: TextThemes.grey_12_400,
                 ),
               ],
