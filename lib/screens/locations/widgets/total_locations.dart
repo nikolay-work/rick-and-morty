@@ -14,7 +14,7 @@ class TotalLocations extends StatelessWidget {
       alignment: Alignment.topLeft,
       child: Text(
         'ВСЕГО ЛОКАЦИЙ: ' + count,
-        style: TextThemes.blue_10_500,
+        style: Theme.of(context).textTheme.overline,
       ),
     );
   }

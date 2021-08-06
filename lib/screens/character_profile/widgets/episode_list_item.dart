@@ -4,7 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:forth_flutter/data/network/models/character_model.dart';
 import 'package:forth_flutter/data/network/models/episode_model.dart';
 import 'package:forth_flutter/resources/icons.dart';
+import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:intl/intl.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 import 'package:forth_flutter/theme/text_theme.dart';
 
@@ -15,6 +19,7 @@ class EpisodeListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, '/episodeItem',
@@ -48,7 +53,10 @@ class EpisodeListItem extends StatelessWidget {
                     ),
                     Text(
                       episodeData.name,
-                      style: TextThemes.white_16_500,
+                      style: theme == ThemeType.dark
+                          ? TextThemes.white_16_500
+                          : TextThemes.white_16_500
+                              .copyWith(color: ColorPalette.black),
                     ),
                     Text(
                       DateFormat.yMMMMd("ru_RU").format(episodeData.premiere),

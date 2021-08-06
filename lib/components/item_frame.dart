@@ -12,7 +12,7 @@ class ItemFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: ColorPalette.blueBackground,
+      backgroundColor: ColorPalette.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leadingWidth: 80,

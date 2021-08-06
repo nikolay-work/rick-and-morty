@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:forth_flutter/data/network/models/episode_model.dart';
 import 'package:forth_flutter/data/network/models/episodes_model.dart';
+import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:intl/intl.dart';
 
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 class EpisodeListItem extends StatelessWidget {
   final EpisodesDatum episodeData;
@@ -12,6 +16,7 @@ class EpisodeListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, '/episodeItem',
@@ -41,11 +46,14 @@ class EpisodeListItem extends StatelessWidget {
                   children: [
                     Text(
                       'СЕРИЯ ${episodeData.series.toString()}',
-                      style: TextThemes.blue2_10_500,
+                      style: TextThemes.lightBlue_10_500,
                     ),
                     Text(
                       episodeData.name,
-                      style: TextThemes.white_16_500,
+                      style: theme == ThemeType.dark
+                          ? TextThemes.white_16_500
+                          : TextThemes.white_16_500
+                              .copyWith(color: ColorPalette.black),
                     ),
                     Text(
                       DateFormat.yMMMMd("ru_RU").format(episodeData.premiere),

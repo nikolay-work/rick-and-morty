@@ -12,6 +12,9 @@ import 'package:forth_flutter/screens/characters/widgets/characters_grid.dart';
 import 'package:forth_flutter/components/characters_list.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
 import 'package:forth_flutter/resources/variables.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 class CharactersScreen extends StatelessWidget {
   @override
@@ -27,7 +30,7 @@ class CharactersScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
               data: (_data) => Scaffold(
-                backgroundColor: ColorPalette.blueBackground,
+                //backgroundColor: ColorPalette.black,
                 appBar: AppBar(
                   elevation: 0,
                   automaticallyImplyLeading: false,
@@ -43,7 +46,7 @@ class CharactersScreen extends StatelessWidget {
                           .add(CharactersEvent.change()),
                     ),
                   ),
-                  backgroundColor: ColorPalette.blueBackground,
+                  //backgroundColor: ColorPalette.black,
                 ),
                 body: !_data.isGrid
                     ? Padding(

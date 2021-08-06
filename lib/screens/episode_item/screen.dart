@@ -6,8 +6,11 @@ import 'package:forth_flutter/components/characters_list.dart';
 import 'package:forth_flutter/components/item_frame.dart';
 import 'package:forth_flutter/resources/icons.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
 import 'package:intl/intl.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 import 'bloc/bloc.dart';
 
@@ -18,6 +21,7 @@ class EpisodeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
     return ItemFrame(
       itemBody: BlocProvider<EpisodeItemBloc>(
         create: (BuildContext context) =>
@@ -49,7 +53,9 @@ class EpisodeItem extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 16),
                           decoration: BoxDecoration(
-                            color: ColorPalette.blueBackground,
+                            color: theme == ThemeType.dark
+                                ? ColorPalette.black
+                                : ColorPalette.white,
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(26.0)),
                           ),
@@ -69,14 +75,17 @@ class EpisodeItem extends StatelessWidget {
                                     child: Text(
                                       _data.episodeData.name,
                                       textAlign: TextAlign.center,
-                                      style: TextThemes.white_24_700,
+                                      style: theme == ThemeType.dark
+                                          ? TextThemes.white_24_700
+                                          : TextThemes.white_24_700.copyWith(
+                                              color: ColorPalette.black),
                                     ),
                                   ),
                                   Align(
                                     child: Text(
                                       'СЕРИЯ ' +
                                           _data.episodeData.series.toString(),
-                                      style: TextThemes.blue2_10_500,
+                                      style: TextThemes.lightBlue_10_500,
                                     ),
                                   ),
                                   const SizedBox(
@@ -85,19 +94,23 @@ class EpisodeItem extends StatelessWidget {
                                   Text(
                                     _data.episodeData.plot,
                                     textAlign: TextAlign.justify,
-                                    style: TextThemes.white_13_400_2,
+                                    style: theme == ThemeType.dark
+                                        ? TextThemes.white_13_400_2
+                                        : TextThemes.white_13_400_2.copyWith(
+                                            color: ColorPalette.black),
                                   ),
                                   const SizedBox(
                                     height: 24,
                                   ),
                                   Text(
                                     'Премьера',
-                                    style: TextThemes.blue_12_400,
+                                    style: Theme.of(context).textTheme.caption,
                                   ),
                                   Text(
                                     DateFormat.yMMMMd("ru_RU")
                                         .format(_data.episodeData.premiere),
-                                    style: TextThemes.white_14_400,
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2,
                                   ),
                                   const SizedBox(
                                     height: 36,
@@ -106,7 +119,7 @@ class EpisodeItem extends StatelessWidget {
                               ),
                             ),
                             Divider(
-                              color: ColorPalette.blueBackground2,
+                              //color: ColorPalette.lightBlack,
                               thickness: 2,
                             ),
                             Padding(
@@ -120,7 +133,8 @@ class EpisodeItem extends StatelessWidget {
                                   ),
                                   Text(
                                     'Персонажи',
-                                    style: TextThemes.white_20_500,
+                                    style:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                   const SizedBox(
                                     height: 24,
@@ -146,7 +160,7 @@ class EpisodeItem extends StatelessWidget {
                             height: 100,
                             padding: EdgeInsets.symmetric(horizontal: 35),
                             decoration: BoxDecoration(
-                              color: ColorPalette.blueText2,
+                              color: ColorPalette.lightBlue,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50.0)),
                             ),

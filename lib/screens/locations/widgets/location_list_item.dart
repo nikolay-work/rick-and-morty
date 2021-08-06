@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:forth_flutter/data/network/models/locations_model.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 import '../view_model.dart';
 
@@ -12,6 +15,7 @@ class LocationListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
     return Column(
       children: [
         GestureDetector(
@@ -34,7 +38,9 @@ class LocationListItem extends StatelessWidget {
         Container(
           //height: 68,
           decoration: BoxDecoration(
-            color: ColorPalette.blueBackground2,
+            color: theme == ThemeType.dark
+                ? ColorPalette.lightBlack
+                : ColorPalette.white,
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(20.0)),
           ),
           child: Padding(
@@ -46,11 +52,11 @@ class LocationListItem extends StatelessWidget {
               children: [
                 Text(
                   locationData.name,
-                  style: TextThemes.white_20_500,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
                 Text(
                   'Мир · ' + locationData.measurements,
-                  style: TextThemes.grey_12_400,
+                  style: Theme.of(context).textTheme.caption,
                 ),
               ],
             ),

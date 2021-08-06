@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 class DialogAlert extends StatelessWidget {
   const DialogAlert({
@@ -9,10 +12,11 @@ class DialogAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeVM = Provider.of<ThemeNotifier>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Dialog(
-        backgroundColor: ColorPalette.blueBackground2,
+        //backgroundColor: ColorPalette.lightBlack,
         insetPadding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 16,
@@ -24,7 +28,7 @@ class DialogAlert extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 20),
                 child: Text(
                   'Темная тема',
-                  style: TextThemes.white_20_500,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               const SizedBox(
@@ -33,55 +37,55 @@ class DialogAlert extends StatelessWidget {
               Row(
                 children: [
                   Radio(
-                    value: 0,
-                    groupValue: 'chooseTheme',
-                    onChanged: null,
+                    value: ThemeType.light,
+                    groupValue: themeVM.getThemeType(),
+                    onChanged: (value) => themeVM.setThemeStyle(value),
                   ),
                   Text(
                     'Выключенна',
-                    style: TextThemes.white_16_400,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
               ),
               Row(
                 children: [
                   Radio(
-                    value: 1,
-                    groupValue: 'chooseTheme',
-                    onChanged: null,
+                    value: ThemeType.dark,
+                    groupValue: themeVM.getThemeType(),
+                    onChanged: (value) => themeVM.setThemeStyle(value),
                   ),
                   Text(
                     'Включенна',
-                    style: TextThemes.white_16_400,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
               ),
               Row(
                 children: [
                   Radio(
-                    value: 2,
-                    groupValue: 'chooseTheme',
-                    onChanged: null,
+                    value: ThemeType.byDevice,
+                    groupValue: themeVM.getThemeType(),
+                    onChanged: (value) => themeVM.setThemeStyle(value),
                   ),
                   Text(
                     'Следовать настройкам системы',
-                    style: TextThemes.white_16_400,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  Radio(
-                    value: 3,
-                    groupValue: 'chooseTheme',
-                    onChanged: null,
-                  ),
-                  Text(
-                    'В режиме энергосбережения',
-                    style: TextThemes.white_16_400,
-                  ),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     Radio(
+              //       value: 3,
+              //       groupValue: themeVM.getThemeType(),
+              //       onChanged: null,
+              //     ),
+              //     Text(
+              //       'В режиме энергосбережения',
+              //       style: TextThemes.white_16_400,
+              //     ),
+              //   ],
+              // ),
               Container(
                 padding: EdgeInsets.only(right: 20, top: 2),
                 alignment: Alignment.bottomRight,
@@ -91,7 +95,7 @@ class DialogAlert extends StatelessWidget {
                   },
                   child: Text(
                     'ОТМЕНА',
-                    style: TextThemes.white_14_500_2,
+                    style: Theme.of(context).textTheme.button,
                   ),
                 ),
               )

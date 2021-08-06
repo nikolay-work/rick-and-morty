@@ -19,16 +19,16 @@ class SearchBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
           borderSide: BorderSide.none,
         ),
-        fillColor: ColorPalette.blueBackground2,
+        //fillColor: ColorPalette.lightBlack,
         filled: true,
         contentPadding: EdgeInsets.symmetric(vertical: 12.0),
         hintText: hintText,
-        hintStyle: TextThemes.body_1,
+        //hintStyle: TextThemes.body_1,
         prefixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SvgPicture.asset(
             MainIcons.search,
-            color: ColorPalette.blueText,
+            color: ColorPalette.gray,
           ),
         ),
         suffixIcon: showSuffixIcon
@@ -37,7 +37,7 @@ class SearchBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     VerticalDivider(
-                      color: ColorPalette.blueText,
+                      color: ColorPalette.gray,
                       indent: 12,
                       endIndent: 12,
                     ),
@@ -45,7 +45,7 @@ class SearchBar extends StatelessWidget {
                       onPressed: () {},
                       icon: SvgPicture.asset(
                         MainIcons.filter,
-                        color: ColorPalette.blueText,
+                        color: ColorPalette.gray,
                       ),
                     ),
                   ],

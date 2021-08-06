@@ -10,8 +10,11 @@ import 'package:forth_flutter/resources/icons.dart';
 import 'package:forth_flutter/resources/images.dart';
 import 'package:forth_flutter/screens/character_profile/widgets/episodes_list.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
 import 'package:forth_flutter/resources/variables.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 import 'bloc/bloc.dart';
 
@@ -23,6 +26,7 @@ class CharacterProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //print(arguments['characterId']);
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
 
     return ItemFrame(
       itemBody: BlocProvider<CharacterProfileBloc>(
@@ -80,13 +84,16 @@ class CharacterProfile extends StatelessWidget {
                             children: [
                               Container(
                                 padding: EdgeInsets.only(top: 90),
-                                color: ColorPalette.blueBackground,
+                                color: theme == ThemeType.dark
+                                    ? ColorPalette.black
+                                    : ColorPalette.white,
                                 child: Column(
                                   children: [
                                     //Text(arguments['characterId']),
                                     Text(
                                       _data.characterData.fullName,
-                                      style: TextThemes.white_34_400,
+                                      style:
+                                          Theme.of(context).textTheme.headline4,
                                     ),
                                     Text(
                                       _data.characterData.status == 0
@@ -104,7 +111,10 @@ class CharacterProfile extends StatelessWidget {
                                           horizontal: 16.0),
                                       child: Text(
                                         _data.characterData.about,
-                                        style: TextThemes.white_13_400,
+                                        style: theme == ThemeType.dark
+                                            ? TextThemes.white_13_400
+                                            : TextThemes.white_13_400.copyWith(
+                                                color: ColorPalette.black),
                                         textAlign: TextAlign.justify,
                                       ),
                                     ),
@@ -123,14 +133,18 @@ class CharacterProfile extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   'Пол',
-                                                  style: TextThemes.blue_12_400,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .caption,
                                                 ),
                                                 Text(
                                                   _data.characterData.gender ==
                                                           0
                                                       ? 'Мужской'
                                                       : 'Женский',
-                                                  style: TextThemes.white_14_400
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText2
                                                       .copyWith(height: 1.8),
                                                 ),
                                               ],
@@ -143,11 +157,15 @@ class CharacterProfile extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   'Расса',
-                                                  style: TextThemes.blue_12_400,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .caption,
                                                 ),
                                                 Text(
                                                   _data.characterData.race,
-                                                  style: TextThemes.white_14_400
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText2
                                                       .copyWith(height: 1.8),
                                                 ),
                                               ],
@@ -170,12 +188,16 @@ class CharacterProfile extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   'Локация',
-                                                  style: TextThemes.blue_12_400,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .caption,
                                                 ),
                                                 Text(
                                                   _data.characterData.location
                                                       .name,
-                                                  style: TextThemes.white_14_400
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText2
                                                       .copyWith(height: 1.8),
                                                 ),
                                               ],
@@ -187,6 +209,9 @@ class CharacterProfile extends StatelessWidget {
                                               onPressed: () {},
                                               icon: SvgPicture.asset(
                                                 MainIcons.arrowForward,
+                                                color: theme == ThemeType.dark
+                                                    ? ColorPalette.white
+                                                    : ColorPalette.black,
                                               ),
                                             ),
                                           ),
@@ -207,11 +232,15 @@ class CharacterProfile extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   'Местоположение',
-                                                  style: TextThemes.blue_12_400,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .caption,
                                                 ),
                                                 Text(
                                                   'Земля (Измерение подменны)',
-                                                  style: TextThemes.white_14_400
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText2
                                                       .copyWith(height: 1.8),
                                                 ),
                                               ],
@@ -223,6 +252,9 @@ class CharacterProfile extends StatelessWidget {
                                               onPressed: () {},
                                               icon: SvgPicture.asset(
                                                 MainIcons.arrowForward,
+                                                color: theme == ThemeType.dark
+                                                    ? ColorPalette.white
+                                                    : ColorPalette.black,
                                               ),
                                             ),
                                           ),
@@ -230,7 +262,7 @@ class CharacterProfile extends StatelessWidget {
                                       ),
                                     ),
                                     Divider(
-                                      color: ColorPalette.blueBackground2,
+                                      //color: ColorPalette.lightBlack,
                                       thickness: 2,
                                       height: 60,
                                     ),
@@ -242,14 +274,18 @@ class CharacterProfile extends StatelessWidget {
                                           Expanded(
                                             child: Text(
                                               'Эпизоды',
-                                              style: TextThemes.white_20_500,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headline6,
                                             ),
                                           ),
                                           Expanded(
                                             flex: 0,
                                             child: Text(
                                               'Все эпизоды',
-                                              style: TextThemes.blue_12_400,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .caption,
                                             ),
                                           ),
                                         ],
@@ -272,7 +308,9 @@ class CharacterProfile extends StatelessWidget {
                                 top: -82,
                                 child: CircleAvatar(
                                   radius: 82,
-                                  backgroundColor: ColorPalette.blueBackground,
+                                  backgroundColor: theme == ThemeType.dark
+                                      ? ColorPalette.black
+                                      : ColorPalette.white,
                                   child: CircleAvatar(
                                     radius: 73,
                                     backgroundImage: NetworkImage(

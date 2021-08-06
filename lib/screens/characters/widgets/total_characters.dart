@@ -25,7 +25,7 @@ class TotalCharacters extends StatelessWidget {
             flex: 1,
             child: Text(
               'ВСЕГО ПЕРСОНАЖЕЙ: ' + count,
-              style: TextThemes.blue_10_500,
+              style: Theme.of(context).textTheme.overline,
             ),
           ),
           Expanded(
@@ -36,7 +36,7 @@ class TotalCharacters extends StatelessWidget {
               },
               icon: SvgPicture.asset(
                 isGrid ? MainIcons.list : MainIcons.grid,
-                color: ColorPalette.blueText,
+                color: ColorPalette.gray,
               ),
             ),
           ),

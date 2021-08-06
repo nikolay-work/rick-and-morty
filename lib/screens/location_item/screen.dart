@@ -5,7 +5,10 @@ import 'package:forth_flutter/components/characters_list.dart';
 import 'package:forth_flutter/components/item_frame.dart';
 import 'package:forth_flutter/screens/locations/widgets/location_list_item.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 import 'bloc/bloc.dart';
 
@@ -16,6 +19,7 @@ class LocationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
     return ItemFrame(
       itemBody: BlocProvider<LocationItemBloc>(
         create: (BuildContext context) =>
@@ -46,7 +50,9 @@ class LocationItem extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 16),
                           decoration: BoxDecoration(
-                            color: ColorPalette.blueBackground,
+                            color: theme == ThemeType.dark
+                                ? ColorPalette.lightBlack
+                                : ColorPalette.white,
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(26.0)),
                           ),
@@ -59,25 +65,31 @@ class LocationItem extends StatelessWidget {
                           children: [
                             Text(
                               _data.locationData.name,
-                              style: TextThemes.white_24_700,
+                              style: theme == ThemeType.dark
+                                  ? TextThemes.white_24_700
+                                  : TextThemes.white_24_700
+                                      .copyWith(color: ColorPalette.black),
                             ),
                             Text(
                               'Мир · ' + _data.locationData.measurements,
-                              style: TextThemes.grey_12_400,
+                              style: Theme.of(context).textTheme.caption,
                             ),
                             const SizedBox(
                               height: 28,
                             ),
                             Text(
                               _data.locationData.about,
-                              style: TextThemes.white_13_400_2,
+                              style: theme == ThemeType.dark
+                                  ? TextThemes.white_13_400_2
+                                  : TextThemes.white_13_400_2
+                                      .copyWith(color: ColorPalette.black),
                             ),
                             const SizedBox(
                               height: 28,
                             ),
                             Text(
                               'Персонажи',
-                              style: TextThemes.white_20_500,
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                             const SizedBox(
                               height: 24,

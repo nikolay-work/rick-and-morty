@@ -2,30 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:forth_flutter/resources/icons.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 class ButtonItem extends BottomNavigationBarItem {
-  ButtonItem(String iconLink, String label)
+  ButtonItem(String iconLink, String label, ThemeType theme)
       : super(
-          backgroundColor: ColorPalette.blueBackground2,
+          //backgroundColor: ColorPalette.lightBlack,
           label: label,
           icon: SvgPicture.asset(
             iconLink,
-            color: ColorPalette.blueText,
+            color: theme == ThemeType.dark
+                ? ColorPalette.gray
+                : ColorPalette.gray4,
           ),
           activeIcon: SvgPicture.asset(
             iconLink,
-            color: ColorPalette.greenText,
+            color: theme == ThemeType.dark
+                ? ColorPalette.green
+                : ColorPalette.lightBlue,
           ),
         );
 }
 
-List<ButtonItem> itemList = [
-  ButtonItem(MainIcons.bottomBarCharacters, "Персонажи"),
-  ButtonItem(MainIcons.bottomBarLocation, "Локации"),
-  ButtonItem(MainIcons.bottomBarEpisodes, "Эпизоды"),
-  ButtonItem(MainIcons.bottomBarSettings, "Настройки"),
-];
+// List<ButtonItem> itemList = [
+//   ButtonItem(MainIcons.bottomBarCharacters, "Персонажи"),
+//   ButtonItem(MainIcons.bottomBarLocation, "Локации"),
+//   ButtonItem(MainIcons.bottomBarEpisodes, "Эпизоды"),
+//   ButtonItem(MainIcons.bottomBarSettings, "Настройки"),
+// ];
 
 class BottomButtons extends StatelessWidget {
   final int screenNumber;
@@ -37,6 +44,7 @@ class BottomButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
     return BottomNavigationBar(
       onTap: (int index) {
         jumpToPage(index);
@@ -50,12 +58,18 @@ class BottomButtons extends StatelessWidget {
         // Navigator.pushNamed(context, routes[index]);
       },
       currentIndex: screenNumber,
-      selectedLabelStyle: TextThemes.green_12_400,
-      selectedItemColor: ColorPalette.greenText,
-      unselectedLabelStyle: TextThemes.blue_12_400,
-      unselectedItemColor: ColorPalette.blueText,
+      //selectedLabelStyle: TextThemes.green_12_400,
+      //selectedItemColor: ColorPalette.green,
+      //unselectedLabelStyle: TextThemes.grey_12_400,
+      //unselectedLabelStyle: Theme.of(context).textTheme.caption,
+      //unselectedItemColor: ColorPalette.gray,
       showUnselectedLabels: true,
-      items: itemList,
+      items: [
+        ButtonItem(MainIcons.bottomBarCharacters, "Персонажи", theme),
+        ButtonItem(MainIcons.bottomBarLocation, "Локации", theme),
+        ButtonItem(MainIcons.bottomBarEpisodes, "Эпизоды", theme),
+        ButtonItem(MainIcons.bottomBarSettings, "Настройки", theme),
+      ],
     );
   }
 }

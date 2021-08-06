@@ -5,25 +5,30 @@ import 'package:forth_flutter/components/bottom_buttons.dart';
 import 'package:forth_flutter/resources/icons.dart';
 import 'package:forth_flutter/screens/settings/widgets/dialog_alert.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:forth_flutter/theme/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ThemeType theme = Provider.of<ThemeNotifier>(context).getThemeType();
+
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: ColorPalette.blueBackground,
+      //backgroundColor: ColorPalette.black,
       appBar: AppBar(
         elevation: 0,
         //automaticallyImplyLeading: false,
         title: Text(
           'Настройки',
-          style: TextThemes.white_20_500,
+          //style: TextThemes.white_20_500,
         ),
-        backwardsCompatibility: false,
-        backgroundColor: ColorPalette.blueBackground,
+        //backwardsCompatibility: false,
+        //backgroundColor: ColorPalette.black,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -36,7 +41,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               Text(
                 'ВНЕШНИЙ ВИД',
-                style: TextThemes.blue_10_500,
+                style: Theme.of(context).textTheme.overline,
               ),
               const SizedBox(
                 height: 24,
@@ -55,7 +60,9 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       MainIcons.palette,
-                      color: ColorPalette.white,
+                      color: theme == ThemeType.dark
+                          ? ColorPalette.white
+                          : ColorPalette.black,
                     ),
                     Expanded(
                       child: Padding(
@@ -65,10 +72,12 @@ class SettingsScreen extends StatelessWidget {
                           children: [
                             Text(
                               'Темная тема',
-                              style: TextThemes.white_16_400,
+                              style: Theme.of(context).textTheme.subtitle1,
                             ),
                             Text(
-                              'Включена',
+                              theme == ThemeType.dark
+                                  ? "Включена"
+                                  : "Выключена",
                               style: TextThemes.grey_14_400,
                             ),
                           ],
@@ -77,7 +86,9 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     SvgPicture.asset(
                       MainIcons.arrowForward,
-                      color: ColorPalette.white,
+                      color: theme == ThemeType.dark
+                          ? ColorPalette.white
+                          : ColorPalette.black,
                     ),
                   ],
                 ),
@@ -87,21 +98,24 @@ class SettingsScreen extends StatelessWidget {
               ),
               Divider(
                 thickness: 2,
-                color: ColorPalette.blueBackground2,
+                //color: ColorPalette.lightBlack,
               ),
               const SizedBox(
                 height: 36,
               ),
               Text(
                 'О ПРИЛОЖЕНИИ',
-                style: TextThemes.blue_10_500,
+                style: Theme.of(context).textTheme.overline,
               ),
               const SizedBox(
                 height: 24,
               ),
               Text(
                 'Зигерионцы помещают Джерри и Рика в симуляцию, чтобы узнать секрет изготовления концен-трирован- ной темной материи.',
-                style: TextThemes.white_13_400,
+                style: theme == ThemeType.dark
+                    ? TextThemes.white_13_400
+                    : TextThemes.white_13_400
+                        .copyWith(color: ColorPalette.black),
                 textAlign: TextAlign.justify,
               ),
               const SizedBox(
@@ -109,21 +123,24 @@ class SettingsScreen extends StatelessWidget {
               ),
               Divider(
                 thickness: 2,
-                color: ColorPalette.blueBackground2,
+                //color: ColorPalette.lightBlack,
               ),
               const SizedBox(
                 height: 36,
               ),
               Text(
                 'ВЕРСИЯ ПРИЛОЖЕНИЯ',
-                style: TextThemes.blue_10_500,
+                style: Theme.of(context).textTheme.overline,
               ),
               const SizedBox(
                 height: 24,
               ),
               Text(
                 'Rick & Morty  v1.0.0',
-                style: TextThemes.white_13_400,
+                style: theme == ThemeType.dark
+                    ? TextThemes.white_13_400
+                    : TextThemes.white_13_400
+                        .copyWith(color: ColorPalette.black),
               ),
             ],
           ),

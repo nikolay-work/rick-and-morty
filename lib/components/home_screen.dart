@@ -38,11 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: ColorPalette.blueBackground,
-      statusBarBrightness: Brightness.dark,
-    ));
+        //statusBarColor: ColorPalette.black,
+        //statusBarBrightness: Brightness.dark,
+        ));
     return Scaffold(
-      backgroundColor: ColorPalette.blueBackground,
+      //backgroundColor: ColorPalette.black,
       body: PageView(
         controller: controller,
         onPageChanged: (index) {

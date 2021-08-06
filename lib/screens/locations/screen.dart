@@ -27,7 +27,7 @@ class LocationsScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
               data: (_data) => Scaffold(
-                backgroundColor: ColorPalette.blueBackground,
+                //backgroundColor: ColorPalette.black,
                 appBar: AppBar(
                   elevation: 0,
                   automaticallyImplyLeading: false,
@@ -40,7 +40,7 @@ class LocationsScreen extends StatelessWidget {
                       count: _data.locationList.length.toString(),
                     ),
                   ),
-                  backgroundColor: ColorPalette.blueBackground,
+                  //backgroundColor: ColorPalette.black,
                 ),
                 body: ListView.separated(
                     padding: EdgeInsets.fromLTRB(16, 4, 16, 24),

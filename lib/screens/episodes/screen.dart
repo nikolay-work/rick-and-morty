@@ -25,7 +25,7 @@ class EpisodesScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
               data: (_data) => Scaffold(
-                backgroundColor: ColorPalette.blueBackground,
+                //backgroundColor: ColorPalette.black,
                 appBar: AppBar(
                   elevation: 0,
                   automaticallyImplyLeading: false,
@@ -37,7 +37,7 @@ class EpisodesScreen extends StatelessWidget {
                         list: _data.seasonsNameList,
                         currentSeasonId: _data.currentSeasonId),
                   ),
-                  backgroundColor: ColorPalette.blueBackground,
+                  //backgroundColor: ColorPalette.black,
                 ),
                 body: ListView.separated(
                     padding: EdgeInsets.only(bottom: 14),

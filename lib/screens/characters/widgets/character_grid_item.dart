@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:forth_flutter/data/network/models/characters_model.dart';
+import 'package:forth_flutter/theme/helpers/theme_types.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
-import 'package:forth_flutter/data/network/models/character_model.dart';
 
 class CharacterGridItem extends StatelessWidget {
   final CharactersDatum characterData;
@@ -37,11 +37,11 @@ class CharacterGridItem extends StatelessWidget {
             ),
             Text(
               characterData.fullName,
-              style: TextThemes.white_14_500,
+              style: Theme.of(context).textTheme.subtitle2,
             ),
             Text(
               "${characterData.race}, ${characterData.gender == 0 ? 'Мужской' : 'Женский'}",
-              style: TextThemes.grey_12_400,
+              style: Theme.of(context).textTheme.caption,
             ),
           ],
         ),

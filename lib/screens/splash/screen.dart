@@ -14,8 +14,7 @@ class SplashScreen extends StatelessWidget {
         //color: ColorPalette.blueBackground,
 
         image: DecorationImage(
-          colorFilter:
-              ColorFilter.mode(ColorPalette.blueBackground, BlendMode.lighten),
+          colorFilter: ColorFilter.mode(ColorPalette.black, BlendMode.lighten),
           image: AssetImage(Images.firstScreenBackground),
           fit: BoxFit.cover,
         ),
