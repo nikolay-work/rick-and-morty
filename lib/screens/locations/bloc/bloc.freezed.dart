@@ -17,6 +17,13 @@ class _$LocationsEventTearOff {
   _LocationsInitialEvent initial() {
     return const _LocationsInitialEvent();
   }
+
+// ignore: unused_element
+  _LocationsSearchEvent search({@required String searchString}) {
+    return _LocationsSearchEvent(
+      searchString: searchString,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +35,23 @@ mixin _$LocationsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
+    @required TResult search(String searchString),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
+    TResult search(String searchString),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_LocationsInitialEvent value),
+    @required TResult search(_LocationsSearchEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_LocationsInitialEvent value),
+    TResult search(_LocationsSearchEvent value),
     @required TResult orElse(),
   });
 }
@@ -110,8 +121,10 @@ class _$_LocationsInitialEvent
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
+    @required TResult search(String searchString),
   }) {
     assert(initial != null);
+    assert(search != null);
     return initial();
   }
 
@@ -119,6 +132,7 @@ class _$_LocationsInitialEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
+    TResult search(String searchString),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -132,8 +146,10 @@ class _$_LocationsInitialEvent
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_LocationsInitialEvent value),
+    @required TResult search(_LocationsSearchEvent value),
   }) {
     assert(initial != null);
+    assert(search != null);
     return initial(this);
   }
 
@@ -141,6 +157,7 @@ class _$_LocationsInitialEvent
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_LocationsInitialEvent value),
+    TResult search(_LocationsSearchEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -153,6 +170,139 @@ class _$_LocationsInitialEvent
 
 abstract class _LocationsInitialEvent implements LocationsEvent {
   const factory _LocationsInitialEvent() = _$_LocationsInitialEvent;
+}
+
+/// @nodoc
+abstract class _$LocationsSearchEventCopyWith<$Res> {
+  factory _$LocationsSearchEventCopyWith(_LocationsSearchEvent value,
+          $Res Function(_LocationsSearchEvent) then) =
+      __$LocationsSearchEventCopyWithImpl<$Res>;
+  $Res call({String searchString});
+}
+
+/// @nodoc
+class __$LocationsSearchEventCopyWithImpl<$Res>
+    extends _$LocationsEventCopyWithImpl<$Res>
+    implements _$LocationsSearchEventCopyWith<$Res> {
+  __$LocationsSearchEventCopyWithImpl(
+      _LocationsSearchEvent _value, $Res Function(_LocationsSearchEvent) _then)
+      : super(_value, (v) => _then(v as _LocationsSearchEvent));
+
+  @override
+  _LocationsSearchEvent get _value => super._value as _LocationsSearchEvent;
+
+  @override
+  $Res call({
+    Object searchString = freezed,
+  }) {
+    return _then(_LocationsSearchEvent(
+      searchString: searchString == freezed
+          ? _value.searchString
+          : searchString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_LocationsSearchEvent
+    with DiagnosticableTreeMixin
+    implements _LocationsSearchEvent {
+  const _$_LocationsSearchEvent({@required this.searchString})
+      : assert(searchString != null);
+
+  @override
+  final String searchString;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LocationsEvent.search(searchString: $searchString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LocationsEvent.search'))
+      ..add(DiagnosticsProperty('searchString', searchString));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LocationsSearchEvent &&
+            (identical(other.searchString, searchString) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchString, searchString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(searchString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$LocationsSearchEventCopyWith<_LocationsSearchEvent> get copyWith =>
+      __$LocationsSearchEventCopyWithImpl<_LocationsSearchEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult search(String searchString),
+  }) {
+    assert(initial != null);
+    assert(search != null);
+    return search(searchString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult search(String searchString),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (search != null) {
+      return search(searchString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_LocationsInitialEvent value),
+    @required TResult search(_LocationsSearchEvent value),
+  }) {
+    assert(initial != null);
+    assert(search != null);
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_LocationsInitialEvent value),
+    TResult search(_LocationsSearchEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LocationsSearchEvent implements LocationsEvent {
+  const factory _LocationsSearchEvent({@required String searchString}) =
+      _$_LocationsSearchEvent;
+
+  String get searchString;
+  @JsonKey(ignore: true)
+  _$LocationsSearchEventCopyWith<_LocationsSearchEvent> get copyWith;
 }
 
 /// @nodoc

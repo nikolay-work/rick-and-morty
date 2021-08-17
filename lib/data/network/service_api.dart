@@ -31,6 +31,14 @@ class ServiceApi {
     return charactersModelFromJson(response.toString()).data;
   }
 
+  /// Запрос выборки персонажей
+  Future<List<CharactersDatum>> getSearchCharacters(String text) async {
+    Response<String> response = await _dio.get(
+      "api/Characters/Filter?Name=${text}&Status[]=&Gender[]=",
+    );
+    return charactersModelFromJson(response.toString()).data;
+  }
+
   /// Запрос списка всех эпизодов
   Future<List<EpisodesDatum>> getEpisodes() async {
     Response<String> response = await _dio.get(
@@ -39,10 +47,26 @@ class ServiceApi {
     return episodesModelFromJson(response.toString()).data;
   }
 
+  /// Запрос выборки эпизодов
+  Future<List<EpisodesDatum>> getSearchEpisodes(String text) async {
+    Response<String> response = await _dio.get(
+      "api/Episodes/GetByName?Name=${text}",
+    );
+    return episodesModelFromJson(response.toString()).data;
+  }
+
   /// Запрос списка всех локаций
   Future<List<LocationsDatum>> getLocations() async {
     Response<String> response = await _dio.get(
       "api/Locations/GetAll?PageNumber=1&PageSize=100",
+    );
+    return locaModelFromJson(response.toString()).data;
+  }
+
+  /// Запрос выборки локаций
+  Future<List<LocationsDatum>> getSearchLocations(String text) async {
+    Response<String> response = await _dio.get(
+      "api/Locations/Filter?Name=${text}",
     );
     return locaModelFromJson(response.toString()).data;
   }

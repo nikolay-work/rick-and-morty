@@ -16,12 +16,14 @@ class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
   final _repository = Repository();
   //List<LocationModel> _locationList;
   List<LocationsDatum> _locationList = List<LocationsDatum>();
+  List<LocationsDatum> _locationSearchList = List<LocationsDatum>();
 
   LocationsBloc() : super(LocationsState.loading());
 
   @override
   Stream<LocationsState> mapEventToState(LocationsEvent event) async* {
-    yield* event.map(initial: _mapLocationsInitialEvent);
+    yield* event.map(
+        initial: _mapLocationsInitialEvent, search: _mapLocationsSearchEvent);
   }
 
   Stream<LocationsState> _mapLocationsInitialEvent(
@@ -45,6 +47,28 @@ class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
     // }
     yield LocationsState.data(
       locationList: _locationList,
+    );
+  }
+
+  Stream<LocationsState> _mapLocationsSearchEvent(
+      _LocationsSearchEvent event) async* {
+    yield LocationsState.loading();
+    try {
+      //print('fdrhh');
+      _locationSearchList =
+          await _repository.getSearchLocations(event.searchString);
+      // _charactersList = charactersList;
+    } on DioError catch (e) {
+      print('!!!!!!!!!!!!!!!!!!${e.message}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.error}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.type}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.request}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.response}!!!!!!!!!!!!!!!!!!!');
+
+      yield LocationsState.error();
+    }
+    yield LocationsState.data(
+      locationList: _locationSearchList,
     );
   }
 }

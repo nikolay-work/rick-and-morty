@@ -7,5 +7,7 @@ abstract class EpisodesState with _$EpisodesState {
       {@required List<int> seasonsNameList,
       @required List<EpisodesDatum> episodesList,
       @required int currentSeasonId}) = _EpisodesDataState;
+  const factory EpisodesState.searchData(
+      {@required List<EpisodesDatum> episodesList}) = _EpisodesSearchDataState;
   const factory EpisodesState.error() = _EpisodesErrorState;
 }

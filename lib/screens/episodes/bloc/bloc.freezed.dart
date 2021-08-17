@@ -24,6 +24,13 @@ class _$EpisodesEventTearOff {
       currentSeasonId: currentSeasonId,
     );
   }
+
+// ignore: unused_element
+  _EpisodesSearchEvent search({@required String searchString}) {
+    return _EpisodesSearchEvent(
+      searchString: searchString,
+    );
+  }
 }
 
 /// @nodoc
@@ -36,22 +43,26 @@ mixin _$EpisodesEvent {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult changeSeason(int currentSeasonId),
+    @required TResult search(String searchString),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult changeSeason(int currentSeasonId),
+    TResult search(String searchString),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_EpisodesInitialEvent value),
     @required TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    @required TResult search(_EpisodesSearchEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_EpisodesInitialEvent value),
     TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    TResult search(_EpisodesSearchEvent value),
     @required TResult orElse(),
   });
 }
@@ -122,9 +133,11 @@ class _$_EpisodesInitialEvent
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult changeSeason(int currentSeasonId),
+    @required TResult search(String searchString),
   }) {
     assert(initial != null);
     assert(changeSeason != null);
+    assert(search != null);
     return initial();
   }
 
@@ -133,6 +146,7 @@ class _$_EpisodesInitialEvent
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult changeSeason(int currentSeasonId),
+    TResult search(String searchString),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -147,9 +161,11 @@ class _$_EpisodesInitialEvent
   TResult map<TResult extends Object>({
     @required TResult initial(_EpisodesInitialEvent value),
     @required TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    @required TResult search(_EpisodesSearchEvent value),
   }) {
     assert(initial != null);
     assert(changeSeason != null);
+    assert(search != null);
     return initial(this);
   }
 
@@ -158,6 +174,7 @@ class _$_EpisodesInitialEvent
   TResult maybeMap<TResult extends Object>({
     TResult initial(_EpisodesInitialEvent value),
     TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    TResult search(_EpisodesSearchEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -253,9 +270,11 @@ class _$_EpisodesChangeSeasonEvent
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult changeSeason(int currentSeasonId),
+    @required TResult search(String searchString),
   }) {
     assert(initial != null);
     assert(changeSeason != null);
+    assert(search != null);
     return changeSeason(currentSeasonId);
   }
 
@@ -264,6 +283,7 @@ class _$_EpisodesChangeSeasonEvent
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult changeSeason(int currentSeasonId),
+    TResult search(String searchString),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -278,9 +298,11 @@ class _$_EpisodesChangeSeasonEvent
   TResult map<TResult extends Object>({
     @required TResult initial(_EpisodesInitialEvent value),
     @required TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    @required TResult search(_EpisodesSearchEvent value),
   }) {
     assert(initial != null);
     assert(changeSeason != null);
+    assert(search != null);
     return changeSeason(this);
   }
 
@@ -289,6 +311,7 @@ class _$_EpisodesChangeSeasonEvent
   TResult maybeMap<TResult extends Object>({
     TResult initial(_EpisodesInitialEvent value),
     TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    TResult search(_EpisodesSearchEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -306,6 +329,145 @@ abstract class _EpisodesChangeSeasonEvent implements EpisodesEvent {
   int get currentSeasonId;
   @JsonKey(ignore: true)
   _$EpisodesChangeSeasonEventCopyWith<_EpisodesChangeSeasonEvent> get copyWith;
+}
+
+/// @nodoc
+abstract class _$EpisodesSearchEventCopyWith<$Res> {
+  factory _$EpisodesSearchEventCopyWith(_EpisodesSearchEvent value,
+          $Res Function(_EpisodesSearchEvent) then) =
+      __$EpisodesSearchEventCopyWithImpl<$Res>;
+  $Res call({String searchString});
+}
+
+/// @nodoc
+class __$EpisodesSearchEventCopyWithImpl<$Res>
+    extends _$EpisodesEventCopyWithImpl<$Res>
+    implements _$EpisodesSearchEventCopyWith<$Res> {
+  __$EpisodesSearchEventCopyWithImpl(
+      _EpisodesSearchEvent _value, $Res Function(_EpisodesSearchEvent) _then)
+      : super(_value, (v) => _then(v as _EpisodesSearchEvent));
+
+  @override
+  _EpisodesSearchEvent get _value => super._value as _EpisodesSearchEvent;
+
+  @override
+  $Res call({
+    Object searchString = freezed,
+  }) {
+    return _then(_EpisodesSearchEvent(
+      searchString: searchString == freezed
+          ? _value.searchString
+          : searchString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_EpisodesSearchEvent
+    with DiagnosticableTreeMixin
+    implements _EpisodesSearchEvent {
+  const _$_EpisodesSearchEvent({@required this.searchString})
+      : assert(searchString != null);
+
+  @override
+  final String searchString;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'EpisodesEvent.search(searchString: $searchString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'EpisodesEvent.search'))
+      ..add(DiagnosticsProperty('searchString', searchString));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _EpisodesSearchEvent &&
+            (identical(other.searchString, searchString) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchString, searchString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(searchString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$EpisodesSearchEventCopyWith<_EpisodesSearchEvent> get copyWith =>
+      __$EpisodesSearchEventCopyWithImpl<_EpisodesSearchEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult changeSeason(int currentSeasonId),
+    @required TResult search(String searchString),
+  }) {
+    assert(initial != null);
+    assert(changeSeason != null);
+    assert(search != null);
+    return search(searchString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult changeSeason(int currentSeasonId),
+    TResult search(String searchString),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (search != null) {
+      return search(searchString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_EpisodesInitialEvent value),
+    @required TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    @required TResult search(_EpisodesSearchEvent value),
+  }) {
+    assert(initial != null);
+    assert(changeSeason != null);
+    assert(search != null);
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_EpisodesInitialEvent value),
+    TResult changeSeason(_EpisodesChangeSeasonEvent value),
+    TResult search(_EpisodesSearchEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EpisodesSearchEvent implements EpisodesEvent {
+  const factory _EpisodesSearchEvent({@required String searchString}) =
+      _$_EpisodesSearchEvent;
+
+  String get searchString;
+  @JsonKey(ignore: true)
+  _$EpisodesSearchEventCopyWith<_EpisodesSearchEvent> get copyWith;
 }
 
 /// @nodoc
@@ -330,6 +492,14 @@ class _$EpisodesStateTearOff {
   }
 
 // ignore: unused_element
+  _EpisodesSearchDataState searchData(
+      {@required List<EpisodesDatum> episodesList}) {
+    return _EpisodesSearchDataState(
+      episodesList: episodesList,
+    );
+  }
+
+// ignore: unused_element
   _EpisodesErrorState error() {
     return const _EpisodesErrorState();
   }
@@ -347,6 +517,7 @@ mixin _$EpisodesState {
     @required
         TResult data(List<int> seasonsNameList,
             List<EpisodesDatum> episodesList, int currentSeasonId),
+    @required TResult searchData(List<EpisodesDatum> episodesList),
     @required TResult error(),
   });
   @optionalTypeArgs
@@ -354,6 +525,7 @@ mixin _$EpisodesState {
     TResult loading(),
     TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
         int currentSeasonId),
+    TResult searchData(List<EpisodesDatum> episodesList),
     TResult error(),
     @required TResult orElse(),
   });
@@ -361,12 +533,14 @@ mixin _$EpisodesState {
   TResult map<TResult extends Object>({
     @required TResult loading(_EpisodesLoadingState value),
     @required TResult data(_EpisodesDataState value),
+    @required TResult searchData(_EpisodesSearchDataState value),
     @required TResult error(_EpisodesErrorState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult loading(_EpisodesLoadingState value),
     TResult data(_EpisodesDataState value),
+    TResult searchData(_EpisodesSearchDataState value),
     TResult error(_EpisodesErrorState value),
     @required TResult orElse(),
   });
@@ -440,10 +614,12 @@ class _$_EpisodesLoadingState
     @required
         TResult data(List<int> seasonsNameList,
             List<EpisodesDatum> episodesList, int currentSeasonId),
+    @required TResult searchData(List<EpisodesDatum> episodesList),
     @required TResult error(),
   }) {
     assert(loading != null);
     assert(data != null);
+    assert(searchData != null);
     assert(error != null);
     return loading();
   }
@@ -454,6 +630,7 @@ class _$_EpisodesLoadingState
     TResult loading(),
     TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
         int currentSeasonId),
+    TResult searchData(List<EpisodesDatum> episodesList),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -469,10 +646,12 @@ class _$_EpisodesLoadingState
   TResult map<TResult extends Object>({
     @required TResult loading(_EpisodesLoadingState value),
     @required TResult data(_EpisodesDataState value),
+    @required TResult searchData(_EpisodesSearchDataState value),
     @required TResult error(_EpisodesErrorState value),
   }) {
     assert(loading != null);
     assert(data != null);
+    assert(searchData != null);
     assert(error != null);
     return loading(this);
   }
@@ -482,6 +661,7 @@ class _$_EpisodesLoadingState
   TResult maybeMap<TResult extends Object>({
     TResult loading(_EpisodesLoadingState value),
     TResult data(_EpisodesDataState value),
+    TResult searchData(_EpisodesSearchDataState value),
     TResult error(_EpisodesErrorState value),
     @required TResult orElse(),
   }) {
@@ -607,10 +787,12 @@ class _$_EpisodesDataState
     @required
         TResult data(List<int> seasonsNameList,
             List<EpisodesDatum> episodesList, int currentSeasonId),
+    @required TResult searchData(List<EpisodesDatum> episodesList),
     @required TResult error(),
   }) {
     assert(loading != null);
     assert(data != null);
+    assert(searchData != null);
     assert(error != null);
     return data(seasonsNameList, episodesList, currentSeasonId);
   }
@@ -621,6 +803,7 @@ class _$_EpisodesDataState
     TResult loading(),
     TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
         int currentSeasonId),
+    TResult searchData(List<EpisodesDatum> episodesList),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -636,10 +819,12 @@ class _$_EpisodesDataState
   TResult map<TResult extends Object>({
     @required TResult loading(_EpisodesLoadingState value),
     @required TResult data(_EpisodesDataState value),
+    @required TResult searchData(_EpisodesSearchDataState value),
     @required TResult error(_EpisodesErrorState value),
   }) {
     assert(loading != null);
     assert(data != null);
+    assert(searchData != null);
     assert(error != null);
     return data(this);
   }
@@ -649,6 +834,7 @@ class _$_EpisodesDataState
   TResult maybeMap<TResult extends Object>({
     TResult loading(_EpisodesLoadingState value),
     TResult data(_EpisodesDataState value),
+    TResult searchData(_EpisodesSearchDataState value),
     TResult error(_EpisodesErrorState value),
     @required TResult orElse(),
   }) {
@@ -671,6 +857,156 @@ abstract class _EpisodesDataState implements EpisodesState {
   int get currentSeasonId;
   @JsonKey(ignore: true)
   _$EpisodesDataStateCopyWith<_EpisodesDataState> get copyWith;
+}
+
+/// @nodoc
+abstract class _$EpisodesSearchDataStateCopyWith<$Res> {
+  factory _$EpisodesSearchDataStateCopyWith(_EpisodesSearchDataState value,
+          $Res Function(_EpisodesSearchDataState) then) =
+      __$EpisodesSearchDataStateCopyWithImpl<$Res>;
+  $Res call({List<EpisodesDatum> episodesList});
+}
+
+/// @nodoc
+class __$EpisodesSearchDataStateCopyWithImpl<$Res>
+    extends _$EpisodesStateCopyWithImpl<$Res>
+    implements _$EpisodesSearchDataStateCopyWith<$Res> {
+  __$EpisodesSearchDataStateCopyWithImpl(_EpisodesSearchDataState _value,
+      $Res Function(_EpisodesSearchDataState) _then)
+      : super(_value, (v) => _then(v as _EpisodesSearchDataState));
+
+  @override
+  _EpisodesSearchDataState get _value =>
+      super._value as _EpisodesSearchDataState;
+
+  @override
+  $Res call({
+    Object episodesList = freezed,
+  }) {
+    return _then(_EpisodesSearchDataState(
+      episodesList: episodesList == freezed
+          ? _value.episodesList
+          : episodesList as List<EpisodesDatum>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_EpisodesSearchDataState
+    with DiagnosticableTreeMixin
+    implements _EpisodesSearchDataState {
+  const _$_EpisodesSearchDataState({@required this.episodesList})
+      : assert(episodesList != null);
+
+  @override
+  final List<EpisodesDatum> episodesList;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'EpisodesState.searchData(episodesList: $episodesList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'EpisodesState.searchData'))
+      ..add(DiagnosticsProperty('episodesList', episodesList));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _EpisodesSearchDataState &&
+            (identical(other.episodesList, episodesList) ||
+                const DeepCollectionEquality()
+                    .equals(other.episodesList, episodesList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(episodesList);
+
+  @JsonKey(ignore: true)
+  @override
+  _$EpisodesSearchDataStateCopyWith<_EpisodesSearchDataState> get copyWith =>
+      __$EpisodesSearchDataStateCopyWithImpl<_EpisodesSearchDataState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult loading(),
+    @required
+        TResult data(List<int> seasonsNameList,
+            List<EpisodesDatum> episodesList, int currentSeasonId),
+    @required TResult searchData(List<EpisodesDatum> episodesList),
+    @required TResult error(),
+  }) {
+    assert(loading != null);
+    assert(data != null);
+    assert(searchData != null);
+    assert(error != null);
+    return searchData(episodesList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult loading(),
+    TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
+        int currentSeasonId),
+    TResult searchData(List<EpisodesDatum> episodesList),
+    TResult error(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (searchData != null) {
+      return searchData(episodesList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult loading(_EpisodesLoadingState value),
+    @required TResult data(_EpisodesDataState value),
+    @required TResult searchData(_EpisodesSearchDataState value),
+    @required TResult error(_EpisodesErrorState value),
+  }) {
+    assert(loading != null);
+    assert(data != null);
+    assert(searchData != null);
+    assert(error != null);
+    return searchData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult loading(_EpisodesLoadingState value),
+    TResult data(_EpisodesDataState value),
+    TResult searchData(_EpisodesSearchDataState value),
+    TResult error(_EpisodesErrorState value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (searchData != null) {
+      return searchData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EpisodesSearchDataState implements EpisodesState {
+  const factory _EpisodesSearchDataState(
+          {@required List<EpisodesDatum> episodesList}) =
+      _$_EpisodesSearchDataState;
+
+  List<EpisodesDatum> get episodesList;
+  @JsonKey(ignore: true)
+  _$EpisodesSearchDataStateCopyWith<_EpisodesSearchDataState> get copyWith;
 }
 
 /// @nodoc
@@ -724,10 +1060,12 @@ class _$_EpisodesErrorState
     @required
         TResult data(List<int> seasonsNameList,
             List<EpisodesDatum> episodesList, int currentSeasonId),
+    @required TResult searchData(List<EpisodesDatum> episodesList),
     @required TResult error(),
   }) {
     assert(loading != null);
     assert(data != null);
+    assert(searchData != null);
     assert(error != null);
     return error();
   }
@@ -738,6 +1076,7 @@ class _$_EpisodesErrorState
     TResult loading(),
     TResult data(List<int> seasonsNameList, List<EpisodesDatum> episodesList,
         int currentSeasonId),
+    TResult searchData(List<EpisodesDatum> episodesList),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -753,10 +1092,12 @@ class _$_EpisodesErrorState
   TResult map<TResult extends Object>({
     @required TResult loading(_EpisodesLoadingState value),
     @required TResult data(_EpisodesDataState value),
+    @required TResult searchData(_EpisodesSearchDataState value),
     @required TResult error(_EpisodesErrorState value),
   }) {
     assert(loading != null);
     assert(data != null);
+    assert(searchData != null);
     assert(error != null);
     return error(this);
   }
@@ -766,6 +1107,7 @@ class _$_EpisodesErrorState
   TResult maybeMap<TResult extends Object>({
     TResult loading(_EpisodesLoadingState value),
     TResult data(_EpisodesDataState value),
+    TResult searchData(_EpisodesSearchDataState value),
     TResult error(_EpisodesErrorState value),
     @required TResult orElse(),
   }) {

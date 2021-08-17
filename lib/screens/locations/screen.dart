@@ -33,6 +33,9 @@ class LocationsScreen extends StatelessWidget {
                   automaticallyImplyLeading: false,
                   title: SearchBar(
                     hintText: 'Найти локацию',
+                    searchFunction: (String text) => Navigator.pushNamed(
+                        context, '/searchLocationsScreen',
+                        arguments: {'searchText': text}),
                   ),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(60),

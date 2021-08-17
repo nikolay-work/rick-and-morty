@@ -22,6 +22,13 @@ class _$CharactersEventTearOff {
   _CharactersInitialEvent initial() {
     return const _CharactersInitialEvent();
   }
+
+// ignore: unused_element
+  _CharactersSearchEvent search({@required String searchString}) {
+    return _CharactersSearchEvent(
+      searchString: searchString,
+    );
+  }
 }
 
 /// @nodoc
@@ -34,22 +41,26 @@ mixin _$CharactersEvent {
   TResult when<TResult extends Object>({
     @required TResult change(),
     @required TResult initial(),
+    @required TResult search(String searchString),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult change(),
     TResult initial(),
+    TResult search(String searchString),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult change(_CharactersChangeViewEvent value),
     @required TResult initial(_CharactersInitialEvent value),
+    @required TResult search(_CharactersSearchEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult change(_CharactersChangeViewEvent value),
     TResult initial(_CharactersInitialEvent value),
+    TResult search(_CharactersSearchEvent value),
     @required TResult orElse(),
   });
 }
@@ -121,9 +132,11 @@ class _$_CharactersChangeViewEvent
   TResult when<TResult extends Object>({
     @required TResult change(),
     @required TResult initial(),
+    @required TResult search(String searchString),
   }) {
     assert(change != null);
     assert(initial != null);
+    assert(search != null);
     return change();
   }
 
@@ -132,6 +145,7 @@ class _$_CharactersChangeViewEvent
   TResult maybeWhen<TResult extends Object>({
     TResult change(),
     TResult initial(),
+    TResult search(String searchString),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -146,9 +160,11 @@ class _$_CharactersChangeViewEvent
   TResult map<TResult extends Object>({
     @required TResult change(_CharactersChangeViewEvent value),
     @required TResult initial(_CharactersInitialEvent value),
+    @required TResult search(_CharactersSearchEvent value),
   }) {
     assert(change != null);
     assert(initial != null);
+    assert(search != null);
     return change(this);
   }
 
@@ -157,6 +173,7 @@ class _$_CharactersChangeViewEvent
   TResult maybeMap<TResult extends Object>({
     TResult change(_CharactersChangeViewEvent value),
     TResult initial(_CharactersInitialEvent value),
+    TResult search(_CharactersSearchEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -220,9 +237,11 @@ class _$_CharactersInitialEvent
   TResult when<TResult extends Object>({
     @required TResult change(),
     @required TResult initial(),
+    @required TResult search(String searchString),
   }) {
     assert(change != null);
     assert(initial != null);
+    assert(search != null);
     return initial();
   }
 
@@ -231,6 +250,7 @@ class _$_CharactersInitialEvent
   TResult maybeWhen<TResult extends Object>({
     TResult change(),
     TResult initial(),
+    TResult search(String searchString),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -245,9 +265,11 @@ class _$_CharactersInitialEvent
   TResult map<TResult extends Object>({
     @required TResult change(_CharactersChangeViewEvent value),
     @required TResult initial(_CharactersInitialEvent value),
+    @required TResult search(_CharactersSearchEvent value),
   }) {
     assert(change != null);
     assert(initial != null);
+    assert(search != null);
     return initial(this);
   }
 
@@ -256,6 +278,7 @@ class _$_CharactersInitialEvent
   TResult maybeMap<TResult extends Object>({
     TResult change(_CharactersChangeViewEvent value),
     TResult initial(_CharactersInitialEvent value),
+    TResult search(_CharactersSearchEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -268,6 +291,145 @@ class _$_CharactersInitialEvent
 
 abstract class _CharactersInitialEvent implements CharactersEvent {
   const factory _CharactersInitialEvent() = _$_CharactersInitialEvent;
+}
+
+/// @nodoc
+abstract class _$CharactersSearchEventCopyWith<$Res> {
+  factory _$CharactersSearchEventCopyWith(_CharactersSearchEvent value,
+          $Res Function(_CharactersSearchEvent) then) =
+      __$CharactersSearchEventCopyWithImpl<$Res>;
+  $Res call({String searchString});
+}
+
+/// @nodoc
+class __$CharactersSearchEventCopyWithImpl<$Res>
+    extends _$CharactersEventCopyWithImpl<$Res>
+    implements _$CharactersSearchEventCopyWith<$Res> {
+  __$CharactersSearchEventCopyWithImpl(_CharactersSearchEvent _value,
+      $Res Function(_CharactersSearchEvent) _then)
+      : super(_value, (v) => _then(v as _CharactersSearchEvent));
+
+  @override
+  _CharactersSearchEvent get _value => super._value as _CharactersSearchEvent;
+
+  @override
+  $Res call({
+    Object searchString = freezed,
+  }) {
+    return _then(_CharactersSearchEvent(
+      searchString: searchString == freezed
+          ? _value.searchString
+          : searchString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_CharactersSearchEvent
+    with DiagnosticableTreeMixin
+    implements _CharactersSearchEvent {
+  const _$_CharactersSearchEvent({@required this.searchString})
+      : assert(searchString != null);
+
+  @override
+  final String searchString;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CharactersEvent.search(searchString: $searchString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CharactersEvent.search'))
+      ..add(DiagnosticsProperty('searchString', searchString));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _CharactersSearchEvent &&
+            (identical(other.searchString, searchString) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchString, searchString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(searchString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$CharactersSearchEventCopyWith<_CharactersSearchEvent> get copyWith =>
+      __$CharactersSearchEventCopyWithImpl<_CharactersSearchEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult change(),
+    @required TResult initial(),
+    @required TResult search(String searchString),
+  }) {
+    assert(change != null);
+    assert(initial != null);
+    assert(search != null);
+    return search(searchString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult change(),
+    TResult initial(),
+    TResult search(String searchString),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (search != null) {
+      return search(searchString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult change(_CharactersChangeViewEvent value),
+    @required TResult initial(_CharactersInitialEvent value),
+    @required TResult search(_CharactersSearchEvent value),
+  }) {
+    assert(change != null);
+    assert(initial != null);
+    assert(search != null);
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult change(_CharactersChangeViewEvent value),
+    TResult initial(_CharactersInitialEvent value),
+    TResult search(_CharactersSearchEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CharactersSearchEvent implements CharactersEvent {
+  const factory _CharactersSearchEvent({@required String searchString}) =
+      _$_CharactersSearchEvent;
+
+  String get searchString;
+  @JsonKey(ignore: true)
+  _$CharactersSearchEventCopyWith<_CharactersSearchEvent> get copyWith;
 }
 
 /// @nodoc

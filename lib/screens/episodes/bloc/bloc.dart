@@ -17,6 +17,7 @@ class EpisodesBloc extends Bloc<EpisodesEvent, EpisodesState> {
   final _repository = Repository();
   List<EpisodesDatum> _allEpisodesList = List<EpisodesDatum>();
   List<EpisodesDatum> _episodesList = List<EpisodesDatum>();
+  List<EpisodesDatum> _episodesSearchList = List<EpisodesDatum>();
   //List<SeasonNameModel> _seasonsNameList;
   List<int> _seasonsNameList = List<int>();
   //List<EpisodeModel> _episodesList;
@@ -28,7 +29,8 @@ class EpisodesBloc extends Bloc<EpisodesEvent, EpisodesState> {
   Stream<EpisodesState> mapEventToState(EpisodesEvent event) async* {
     yield* event.map(
         initial: _mapEpisodesInitialEvent,
-        changeSeason: _mapEpisodesChangeSeasonEvent);
+        changeSeason: _mapEpisodesChangeSeasonEvent,
+        search: _mapEpisodesSearchEvent);
   }
 
   Stream<EpisodesState> _mapEpisodesInitialEvent(
@@ -67,6 +69,28 @@ class EpisodesBloc extends Bloc<EpisodesEvent, EpisodesState> {
       seasonsNameList: _seasonsNameList,
       episodesList: _episodesList,
       currentSeasonId: _currentSeasonId,
+    );
+  }
+
+  Stream<EpisodesState> _mapEpisodesSearchEvent(
+      _EpisodesSearchEvent event) async* {
+    yield EpisodesState.loading();
+    try {
+      _episodesSearchList =
+          await _repository.getSearchEpisodes(event.searchString);
+
+      // _charactersList = charactersList;
+    } on DioError catch (e) {
+      print('!!!!!!!!!!!!!!!!!!${e.message}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.error}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.type}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.request}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.response}!!!!!!!!!!!!!!!!!!!');
+
+      yield EpisodesState.error();
+    }
+    yield EpisodesState.searchData(
+      episodesList: _episodesSearchList,
     );
   }
 

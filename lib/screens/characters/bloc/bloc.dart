@@ -15,6 +15,7 @@ part 'state.dart';
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final _repository = Repository();
   List<CharactersDatum> charactersList = List<CharactersDatum>();
+  List<CharactersDatum> charactersSearchList = List<CharactersDatum>();
   // List<CharacterModel> _charactersList;
   bool _isGrid = false;
 
@@ -24,7 +25,8 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   Stream<CharactersState> mapEventToState(CharactersEvent event) async* {
     yield* event.map(
         change: _mapCharactersChangeViewEvent,
-        initial: _mapCharactersInitialEvent);
+        initial: _mapCharactersInitialEvent,
+        search: _mapCharactersSearchEvent);
   }
 
   Stream<CharactersState> _mapCharactersInitialEvent(
@@ -43,6 +45,27 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       yield CharactersState.error();
     }
     yield CharactersState.data(charactersList: charactersList, isGrid: _isGrid);
+  }
+
+  Stream<CharactersState> _mapCharactersSearchEvent(
+      _CharactersSearchEvent event) async* {
+    yield CharactersState.loading();
+    try {
+      //print('fdrhh');
+      charactersSearchList =
+          await _repository.getSearchCharacters(event.searchString);
+      // _charactersList = charactersList;
+    } on DioError catch (e) {
+      print('!!!!!!!!!!!!!!!!!!${e.message}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.error}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.type}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.request}!!!!!!!!!!!!!!!!!!!');
+      print('!!!!!!!!!!!!!!!!!!${e.response}!!!!!!!!!!!!!!!!!!!');
+
+      yield CharactersState.error();
+    }
+    yield CharactersState.data(
+        charactersList: charactersSearchList, isGrid: _isGrid);
   }
 
   Stream<CharactersState> _mapCharactersChangeViewEvent(

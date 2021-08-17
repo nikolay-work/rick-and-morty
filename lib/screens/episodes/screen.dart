@@ -30,7 +30,13 @@ class EpisodesScreen extends StatelessWidget {
                   elevation: 0,
                   automaticallyImplyLeading: false,
                   title: SearchBar(
-                      hintText: 'Найти эпизод', showSuffixIcon: false),
+                    hintText: 'Найти эпизод',
+                    showSuffixIcon: false,
+                    searchFunction: (String text) => Navigator.pushNamed(
+                        context, '/searchEpisodesScreen',
+                        arguments: {'searchText': text}),
+                    //arguments: {'searchText': "Найт1"}),
+                  ),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(60),
                     child: ChooseSeasonButtons(

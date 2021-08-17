@@ -19,4 +19,8 @@ class Images {
 
   static const location1 = 'assets/images/earth.png';
   static const location2 = 'assets/images/anatomy_park.png';
+
+  static const noCharacters = 'assets/images/no_characters.png';
+  static const noLocations = 'assets/images/no_locations.png';
+  static const noEpisodes = 'assets/images/no_episodes.png';
 }

@@ -16,15 +16,33 @@ class Repository {
     return response;
   }
 
+  // Получение выборки персонажей
+  Future<List<CharactersDatum>> getSearchCharacters(String text) async {
+    final response = await _serviceApi.getSearchCharacters(text);
+    return response;
+  }
+
   // Получение списка эпизодов
   Future<List<EpisodesDatum>> getEpisodes() async {
     final response = await _serviceApi.getEpisodes();
     return response;
   }
 
+  // Получение выборки эпизодов
+  Future<List<EpisodesDatum>> getSearchEpisodes(String text) async {
+    final response = await _serviceApi.getSearchEpisodes(text);
+    return response;
+  }
+
   // Получение списка локаций
   Future<List<LocationsDatum>> getLocations() async {
     final response = await _serviceApi.getLocations();
+    return response;
+  }
+
+  // Получение выборки локаций
+  Future<List<LocationsDatum>> getSearchLocations(String text) async {
+    final response = await _serviceApi.getSearchLocations(text);
     return response;
   }
 

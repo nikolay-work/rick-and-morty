@@ -36,6 +36,10 @@ class CharactersScreen extends StatelessWidget {
                   automaticallyImplyLeading: false,
                   title: SearchBar(
                     hintText: 'Найти персонажа',
+                    searchFunction: (String text) => Navigator.pushNamed(
+                        context, '/searchCharactersScreen',
+                        arguments: {'searchText': text}),
+                    //arguments: {'searchText': "Рик1"}),
                   ),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(60),

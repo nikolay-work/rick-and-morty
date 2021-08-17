@@ -3,16 +3,24 @@ import 'package:flutter_svg/svg.dart';
 import 'package:forth_flutter/resources/icons.dart';
 import 'package:forth_flutter/theme/color_theme.dart';
 import 'package:forth_flutter/theme/text_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchBar extends StatelessWidget {
   final String hintText;
   final bool showSuffixIcon;
+  final Function searchFunction;
+  final TextEditingController _controller = TextEditingController();
 
-  SearchBar({this.hintText, this.showSuffixIcon = true});
+  SearchBar(
+      {this.hintText,
+      this.showSuffixIcon = true,
+      @required this.searchFunction});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: _controller,
+      onFieldSubmitted: (text) => searchFunction(text),
       style: TextThemes.body_1,
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -42,7 +50,7 @@ class SearchBar extends StatelessWidget {
                       endIndent: 12,
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () => searchFunction(_controller.value.text),
                       icon: SvgPicture.asset(
                         MainIcons.filter,
                         color: ColorPalette.gray,

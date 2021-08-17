@@ -5,4 +5,6 @@ abstract class EpisodesEvent with _$EpisodesEvent {
   const factory EpisodesEvent.initial() = _EpisodesInitialEvent;
   const factory EpisodesEvent.changeSeason({@required int currentSeasonId}) =
       _EpisodesChangeSeasonEvent;
+  const factory EpisodesEvent.search({@required String searchString}) =
+      _EpisodesSearchEvent;
 }

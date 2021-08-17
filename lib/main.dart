@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:forth_flutter/components/custom_router.dart';
+import 'package:forth_flutter/screens/characters/search.dart';
 import 'package:forth_flutter/screens/episode_item/screen.dart';
 import 'package:forth_flutter/screens/episodes/screen.dart';
+import 'package:forth_flutter/screens/episodes/search.dart';
 import 'package:forth_flutter/screens/location_item/screen.dart';
 import 'package:forth_flutter/screens/locations/screen.dart';
+import 'package:forth_flutter/screens/locations/search.dart';
 import 'package:forth_flutter/screens/settings/screen.dart';
 import 'package:forth_flutter/theme/repository/repository.dart';
 import 'package:forth_flutter/theme/theme_manager.dart';
@@ -72,6 +75,18 @@ class _MyAppState extends State<MyApp> {
               //  print(settings.arguments);
               return CustomRouter(
                   page: LocationItem(arguments: settings.arguments));
+            } else if (settings.name == '/searchCharactersScreen') {
+              //  print(settings.arguments);
+              return CustomRouter(
+                  page: SearchCharactersScreen(arguments: settings.arguments));
+            } else if (settings.name == '/searchEpisodesScreen') {
+              //  print(settings.arguments);
+              return CustomRouter(
+                  page: SearchEpisodesScreen(arguments: settings.arguments));
+            } else if (settings.name == '/searchLocationsScreen') {
+              //  print(settings.arguments);
+              return CustomRouter(
+                  page: SearchLocationsScreen(arguments: settings.arguments));
             } else {
               return CustomRouter(page: CharactersScreen());
             }
